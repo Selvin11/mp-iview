@@ -1,4 +1,4 @@
-import '../lib/style.css'
+import '../lib/style.css' // weui css
 import Actionsheet from './actionsheet'
 import Badge from './badge'
 import Cell from './cell'
