@@ -1,6 +1,7 @@
 import '../lib/style.css' // weui css
 import Actionsheet from './actionsheet'
 import Badge from './badge'
+import iButton from './button'
 import Cell from './cell'
 import CellGroup from './cell-group'
 import Checklist from './checklist'
@@ -24,6 +25,7 @@ import Switch from './switch'
 const components = [
   Actionsheet,
   Badge,
+  iButton,
   Cell,
   CellGroup,
   Checklist,
@@ -65,6 +67,7 @@ export {
   version,
   Actionsheet,
   Badge,
+  iButton,
   Cell,
   CellGroup,
   Checklist,

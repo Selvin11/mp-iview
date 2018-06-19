@@ -1,31 +1,99 @@
 <template>
-  <div :class="wrapClassName" @click="onClick">
-    <slot />
+  <div>
+    <div class="i-as-mask" :class="[{'i-as-mask-show': visible}, iClassMask]" @click="handleClickMask"></div>
+    <div class="i-as" :class="[{'i-as-show': visible}, iClass]">
+      <div class="i-as-header" :class="iClassHeader">
+        <slot name="header"></slot>
+      </div>
+      <div class="i-as-actions">
+        <div class="i-as-action-itemMask" v-for="(item, index) in actions" :key="index">
+          <button
+            class="i-btn i-btn-long i-btn-large i-btn-ghost i-btn-square"
+            :data-index="index"
+            @click="handleClickItem" 
+            :open-type="item.openType"
+          >
+            <div class="i-as-btn-loading" v-if="item.loading"></div>
+            <i-icon v-if="item.icon" :type="item.icon" i-class="i-as-btn-icon"></i-icon>
+            <div class="i-as-btn-text" :style="{color: item.color}">{{ item.name }}</div>
+          </button>
+        </div>
+      </div>
+      <div class="i-as-cancel">
+        <button
+          class="i-btn i-btn-long i-btn-large i-btn-ghost i-btn-square i-as-cancel-btn"
+          @click="handleClickCancel" 
+        >
+          {{ cancelText }}
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import iIcon from '../icon'
+  // 由于iButton组件中有slot，在iActionSheet组件中循环iButton组件会导致无法正常渲染，因此用原生button代替
   export default {
-    name: 'MpActionsheet',
+    name: 'iActionSheet',
+    components: {
+      iIcon
+    },
     props: {
-      itemColor: {
+      // 附加类名，控制样式
+      iClass: {
         type: String,
-        default: '#000'
+        default: ''
       },
-      wrapClassName: String,
-      actions: Array,
-      value: Number
+      iClassHeader: {
+        type: String,
+        default: ''
+      },
+      iClassMask: {
+        type: String,
+        default: ''
+      },
+      visible: {
+        type: Boolean,
+        default: false
+      },
+      maskClosable: {
+        type: Boolean,
+        default: true
+      },
+      showCancel: {
+        type: Boolean,
+        default: false
+      },
+      cancelText: {
+        type: String,
+        default: '取消'
+      },
+      actions: {
+        type: Array,
+        default: []
+      }
     },
     methods: {
-      onClick () {
-        wx.showActionSheet({
-          itemList: this.actions,
-          itemColor: this.itemColor,
-          success: (res) => {
-            this.$emit('input', Number(res.tapIndex))
-          }
-        })
+      handleClickMask () {
+        if (!this.maskClosable) return
+        this.handleClickCancel()
+      },
+
+      handleClickItem ({ currentTarget = {} }) {
+        const dataset = currentTarget.dataset || {}
+        const { index } = dataset
+        this.$emit('click', { index })
+        this.handleClickCancel()
+      },
+
+      handleClickCancel () {
+        this.$emit('cancel')
       }
     }
   }
 </script>
+<style lang="less">
+  @import './index.less';
+  @import '../button/index.less';
+</style>
