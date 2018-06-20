@@ -42,7 +42,8 @@ export default {
       'pages/toast/main',
       'pages/navbar/main',
       'pages/tabbar/main',
-      'pages/searchbar/main'
+      'pages/searchbar/main',
+      'pages/alert/main' // alert
     ],
     window: {
       navigationBarTextStyle: 'black',

@@ -1,26 +1,14 @@
 <template>
-  <div>
-    <div
-      class="weui-cells__title"
-      v-text="title"
-      v-if="title"
-    />
-    <div :class="['weui-cells', {'weui-cells_after-title': title}]">
-      <slot />
-    </div>
-    <div
-      class="weui-cells__tips"
-      v-text="tips"
-    />
+  <div class="i-cell-group" :class="iClass">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MpCellGroup',
+  name: 'iCellGroup',
   props: {
-    title: String,
-    tips: String
+    iClass: String
   }
 }
 </script>

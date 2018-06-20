@@ -5,92 +5,66 @@
       <div class="page__desc">列表</div>
     </div>
     <div class="page__bd">
-      <!-- <mp-cell-group title="带说明的列表项">
-        <mp-cell
-          content="标题文字"
-          label="说明文字"
-        />
-      </mp-cell-group> -->
-
-      <div class="weui-cells__title">带说明的列表项</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-cell
-          content="标题文字"
-          label="说明文字"
-        />
+      <!-- panel 无标题 -->
+      <div class="i-panel">
+        <div class="i-panel-content">
+          <i-cell title="单行列表"></i-cell>
+        </div>
+      </div>
+      <!-- i-panel-title-hide-top  i-panel-without-border-->
+      <div class="i-panel">
+        <div class="i-panel-title">panel 有标题</div>
+        <div class="i-panel-content">
+          <i-cell title="单行列表"></i-cell>
+        </div>
       </div>
 
-      <div class="weui-cells__title">带图标、说明的列表项</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-cell
-          :icon-src="icon"
-          content="标题文字"
-          label="说明文字"
-        />
-        <mp-cell
-          :icon-src="icon"
-          content="标题文字"
-          label="说明文字"
-        />
-      </div>
+      <i-panel iClass="cell-panel-demo">
+        <i-cell title="单行列表" is-link value="详细信息"></i-cell>
+      </i-panel>
 
-      <div class="weui-cells__title">带跳转的列表项</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-cell
-          content="标题文字"
-          href="/aaa"
-        />
-        <mp-cell
-          content="标题文字"
-          href="/aaa"
-        />
-      </div>
+      <i-panel iClass="cell-panel-demo">
+        <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
+      </i-panel>
 
-      <div class="weui-cells__title">带说明、跳转的列表项</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-cell
-          content="标题文字"
-          label="说明文字"
-          href="/aaa"
-        />
-        <mp-cell
-          content="标题文字"
-          label="说明文字"
-          href="/aaa"
-        />
-      </div>
+      <i-panel iClass="cell-panel-demo" title="带 icon 的 Cell">
+        <i-cell title="单行列表" value="详细信息" icon="like_fill"></i-cell>
+      </i-panel>
 
-      <div class="weui-cells__title">带图标、说明、跳转的列表项</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-cell
-          :icon-src="icon"
-          content="标题文字"
-          label="说明文字"
-          href="/aaa"
-        />
-        <mp-cell
-          :icon-src="icon"
-          content="标题文字"
-          label="说明文字"
-          href="/aaa"
-        />
-      </div>
+      <i-panel iClass="cell-panel-demo" title="带箭头的 cell">
+        <i-cell title="只显示箭头" is-link></i-cell>
+      </i-panel>
+
+      <i-panel iClass="cell-panel-demo">
+        <i-cell title="跳转到首页" is-link url="/pages/index/main"></i-cell>
+      </i-panel>
+
+      <i-panel iClass="cell-panel-demo" title="cell 组">
+        <i-cell-group>
+            <i-cell title="只显示箭头" is-link></i-cell>
+            <i-cell title="跳转到首页" is-link url="/pages/index/main"></i-cell>
+            <i-cell title="只有 footer 点击有效" is-link url="/pages/index/main" :onlyTapFooter="true"></i-cell>
+            <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
+            <i-cell title="表单">
+                <input slot="footer" type="digit" placeholder="带小数点的数字键盘"/>
+            </i-cell>
+        </i-cell-group>
+    </i-panel>
     </div>
   </div>
 </template>
 
 <script>
-import mpCellGroup from '../../../packages/cell-group'
-import mpCell from '../../../packages/cell'
-import base64 from '../../base64'
+import iCellGroup from '../../../packages/cell-group'
+import iCell from '../../../packages/cell'
+import iPanel from '../../../packages/panel'
 
 export default {
-  data () {
-    return {
-      icon: base64.icon20
-    }
-  },
-  components: { mpCell, mpCellGroup }
+  components: {
+    iCell,
+    iCellGroup,
+    iPanel
+  }
 }
 </script>
 

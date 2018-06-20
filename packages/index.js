@@ -1,9 +1,10 @@
 import '../lib/style.css' // weui css
 import Actionsheet from './actionsheet'
+import Alert from './alert'
 import Badge from './badge'
 import iButton from './button'
-import Cell from './cell'
-import CellGroup from './cell-group'
+import iCell from './cell'
+import iCellGroup from './cell-group'
 import Checklist from './checklist'
 import Picker from './picker'
 import Dialog from './dialog'
@@ -24,10 +25,11 @@ import Switch from './switch'
 
 const components = [
   Actionsheet,
+  Alert,
   Badge,
   iButton,
-  Cell,
-  CellGroup,
+  iCell,
+  iCellGroup,
   Checklist,
   Picker,
   Field,
@@ -66,10 +68,11 @@ export {
   install,
   version,
   Actionsheet,
+  Alert,
   Badge,
   iButton,
-  Cell,
-  CellGroup,
+  iCell,
+  iCellGroup,
   Checklist,
   Picker,
   Field,

@@ -63,7 +63,7 @@
           id: 'feedback',
           name: '操作反馈',
           open: false,
-          pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast']
+          pages: ['actionsheet', 'alert', 'dialog', 'msg', 'picker', 'toast']
         }, {
           id: 'nav',
           name: '导航相关',
