@@ -21,7 +21,7 @@ npm run build
 
 ### 表单
 - [x] Button（基于小程序原生组件）
-- [ ] Checklist
+- [x] Checkbox
 - [ ] Field（待优化）
 - [ ] Radio
 - [ ] Slider
@@ -29,19 +29,22 @@ npm run build
 - [ ] Uploader
 
 ### 基础组件
-- [ ] Badge
+- [x] Avatar
+- [x] Badge
+- [x] Card
 - [ ] Footer
 - [ ] Gallery（小程序原生组件）
 - [ ] Grid（待优化）
-- [ ] Icons（小程序原生组件）
+- [x] Icons（小程序原生组件）
 - [ ] List（待优化）
 - [ ] Loadmore
-- [ ] Panel
+- [x] Panel
 - [ ] Preview
 - [ ] Progress
 
 ### 操作反馈
 - [x] Actionsheet
+- [x] Alert
 - [ ] Dialog
 - [ ] Msg
 - [ ] Picker
