@@ -1,21 +1,38 @@
 <template>
-  <div
-    :class="['weui-badge', {'weui-badge_dot': !text}, wrapClassName]"
-    :style="{backgroundColor: color}"
-    v-text="text"
-  />
+  <div class="i-badge" :class="iClass">
+    <slot></slot>
+    <div class="i-badge-dot" v-if="dot"></div>
+    <div class="i-badge-count" :class="iClassAlone" v-else-if="count !== 0">{{ finalCountComputed }}</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'MpBadge',
+  name: 'iBadge',
   props: {
-    color: {
-      type: String,
-      default: '#e64340'
+    iClass: String,
+    iClassAlone: String,
+    count: {
+      type: Number,
+      default: 0
     },
-    wrapClassName: String,
-    text: String
+    overflowCount: {
+      type: Number,
+      default: 99
+    },
+    dot: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    finalCountComputed () {
+      return parseInt(this.count) >= parseInt(this.overflowCount) ? `${this.overflowCount}+` : this.count
+    }
   }
 }
 </script>
+
+<style lang="less">
+@import './index.less';
+</style>

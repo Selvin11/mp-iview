@@ -18,7 +18,7 @@ export default {
       'pages/list/main',
       'pages/field/main',
       'pages/switch/main',
-      'pages/checklist/main',
+      'pages/checkbox/main',
       'pages/radio/main',
       'pages/slider/main',
       'pages/uploader/main',
@@ -43,7 +43,9 @@ export default {
       'pages/navbar/main',
       'pages/tabbar/main',
       'pages/searchbar/main',
-      'pages/alert/main' // alert
+      'pages/alert/main', // alert
+      'pages/avatar/main', // avatar
+      'pages/card/main' // card
     ],
     window: {
       navigationBarTextStyle: 'black',

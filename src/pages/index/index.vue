@@ -40,14 +40,16 @@
           id: 'form',
           name: '表单',
           open: false,
-          pages: ['button', 'checklist', 'field', 'radio', 'slider', 'switch', 'uploader']
+          pages: ['button', 'checkbox', 'field', 'radio', 'slider', 'switch', 'uploader']
         }, {
           id: 'widget',
           name: '基础组件',
           open: false,
           pages: [
             // 'article',
+            'avatar',
             'badge',
+            'card',
             // 'flex',
             'footer',
             'gallery',

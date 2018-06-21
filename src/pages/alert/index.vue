@@ -2,7 +2,7 @@
   <div class="page">
     <div class="page__hd">
       <div class="page__title">Alert</div>
-      <div class="page__desc">按钮，采用小程序原生的按钮，加入一些间距的样式。</div>
+      <div class="page__desc">弹框</div>
     </div>
     <i-alert>
         An info prompt
