@@ -6,15 +6,15 @@ import iButton from './button'
 import iCard from './card'
 import iCell from './cell'
 import iCellGroup from './cell-group'
-import Checklist from './checklist'
 import iCheckbox from './checkbox'
+import iDrawer from './drawer'
 import Picker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
 import Field from './field'
 import Footer from './footer'
-import Grid from './grid'
-import GridGroup from './grid-group'
+import iGrid from './grid'
+import iGridGroup from './grid-group'
 import Loadmore from './loadmore'
 import Message from './message'
 import Navbar from './navbar'
@@ -33,13 +33,13 @@ const components = [
   iCard,
   iCell,
   iCellGroup,
-  Checklist,
   iCheckbox,
+  iDrawer,
   Picker,
   Field,
   Footer,
-  Grid,
-  GridGroup,
+  iGrid,
+  iGridGroup,
   Loadmore,
   Message,
   Navbar,
@@ -78,13 +78,13 @@ export {
   iCard,
   iCell,
   iCellGroup,
-  Checklist,
   iCheckbox,
+  iDrawer,
   Picker,
   Field,
   Footer,
-  Grid,
-  GridGroup,
+  iGrid,
+  iGridGroup,
   Loadmore,
   Message,
   Navbar,

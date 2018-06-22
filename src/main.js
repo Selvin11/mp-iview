@@ -45,6 +45,7 @@ export default {
       'pages/searchbar/main',
       'pages/alert/main', // alert
       'pages/avatar/main', // avatar
+      'pages/drawer/main', // drawer
       'pages/card/main' // card
     ],
     window: {

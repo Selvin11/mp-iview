@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <div class="page__hd">
-      <div class="page__title">MP-Lui</div>
-      <div class="page__desc">MP-Lui 是基于 mpvue 和 weui以及lui 的小程序 UI 库。</div>
+      <div class="page__title">Mp-Lui</div>
+      <div class="page__desc">Mp-Lui 是基于 iview 和 weui 以及 lui UI库，并在 MpVue 上实现的小程序 UI 组件库。</div>
     </div>
     <div class="page__bd page__bd_spacing">
       <div class="kind-list">
@@ -15,8 +15,8 @@
             <div :class="['kind-list__item-bd', {'kind-list__item-bd_show' : item.open}]">
               <div :class="['weui-cells', {'weui-cells_show' : item.open}]">
                 <div v-for="(page, i) in item.pages" :key="i">
-                  <a :href="'/pages/' + page + '/main'" class="weui-cell weui-cell_access">
-                    <div class="weui-cell__bd">{{page}}</div>
+                  <a :href="'/pages/' + page.url + '/main'" class="weui-cell weui-cell_access">
+                    <div class="weui-cell__bd">{{page.url}}-{{page.name}}</div>
                     <div class="weui-cell__ft weui-cell__ft_in-access"></div>
                   </a>
                 </div>
@@ -40,42 +40,114 @@
           id: 'form',
           name: '表单',
           open: false,
-          pages: ['button', 'checkbox', 'field', 'radio', 'slider', 'switch', 'uploader']
+          pages: [{
+            url: 'button',
+            name: '按钮'
+          }, {
+            url: 'checkbox',
+            name: '复选'
+          }, {
+            url: 'field',
+            name: '表单项'
+          }, {
+            url: 'radio',
+            name: '单选'
+          }, {
+            url: 'slider',
+            name: '滑块'
+          }, {
+            url: 'switch',
+            name: '开关'
+          }, {
+            url: 'uploader',
+            name: '上传'
+          }]
         }, {
           id: 'widget',
           name: '基础组件',
           open: false,
-          pages: [
-            // 'article',
-            'avatar',
-            'badge',
-            'card',
-            // 'flex',
-            'footer',
-            'gallery',
-            'grid',
-            'icons',
-            'list',
-            'loadmore',
-            'panel',
-            'preview',
-            'progress'
-          ]
+          pages: [{
+            url: 'avatar',
+            name: '头像'
+          }, {
+            url: 'badge',
+            name: '徽章'
+          }, {
+            url: 'card',
+            name: '卡片'
+          }, {
+            url: 'drawer',
+            name: '抽屉'
+          }, {
+            url: 'footer',
+            name: '底部'
+          }, {
+            url: 'gallery',
+            name: '画廊'
+          }, {
+            url: 'grid',
+            name: '九宫格'
+          }, {
+            url: 'icons',
+            name: '图标'
+          }, {
+            url: 'list',
+            name: '列表'
+          }, {
+            url: 'loadmore',
+            name: '加载更多'
+          }, {
+            url: 'panel',
+            name: '面板'
+          }, {
+            url: 'preview',
+            name: '表单预览'
+          }, {
+            url: 'progress',
+            name: '进度条'
+          }]
         }, {
           id: 'feedback',
           name: '操作反馈',
           open: false,
-          pages: ['actionsheet', 'alert', 'dialog', 'msg', 'picker', 'toast']
+          pages: [{
+            url: 'actionsheet',
+            name: '弹出式菜单'
+          }, {
+            url: 'alert',
+            name: '弹框'
+          }, {
+            url: 'dialog',
+            name: '对话框'
+          }, {
+            url: 'msg',
+            name: '提示页'
+          }, {
+            url: 'picker',
+            name: '选择器'
+          }, {
+            url: 'toast',
+            name: '弹出式提示'
+          }]
         }, {
           id: 'nav',
           name: '导航相关',
           open: false,
-          pages: ['navbar', 'tabbar']
+          pages: [{
+            url: 'navbar',
+            name: '顶部导航'
+          }, {
+            url: 'tabbar',
+            name: '底部导航'
+          }]
         }, {
           id: 'search',
           name: '搜索相关',
           open: false,
-          pages: ['searchbar']
+          pages: [{
+            url: 'searchbar',
+            name: '搜索框'
+          }]
         }]
       }
     },
