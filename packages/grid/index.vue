@@ -1,32 +1,42 @@
 <template>
-  <a
-    @click="$emit('click', $event)"
-    hover-class="weui-grid_active"
-    class="weui-grid"
-    :href="href"
-  >
-    <!-- <slot> -->
-    <img
-      class="weui-grid__icon"
-      :src="iconSrc"
-    />
-    <!-- </slot> -->
-    <div class="weui-grid__label">
-      <!-- <slot name="label"> -->
-      <span v-text="label" />
-      <!-- </slot> -->
+<!-- <div class="i-grid"> -->
+  <div class="i-grid-item" :class="iClass" :style="{'width': width}">
+    <div class="i-grid-icon">
+      <!-- icon -->
+      <div 
+        class="i-icon" 
+        :class="['i-icon-' + type]" 
+        :style="{fontSize: size + 'px', color: color}"
+      >
+      </div>
+      <!-- label -->
+      <div class="i-grid-label">
+        <span v-text="label" />
+      </div>
     </div>
-  </a>
+  </div>
+<!-- </div> -->
 </template>
 
 <script>
 export default {
-  name: 'MpGrid',
+  name: 'iGrid',
   props: {
-    iconSrc: String,
-    label: String,
-    href: String
+    iClass: String,
+    size: Number,
+    color: String,
+    type: String, // icon 类型
+    label: String // 标题文字
+  },
+  data () {
+    return {
+      width: '33.33%'
+    }
   }
 }
 </script>
 
+<style lang="less">
+@import './index.less';
+@import '../icon/index.less';
+</style>

@@ -5,31 +5,53 @@
       <div class="page__desc">九宫格</div>
     </div>
     <div class="page__bd">
-      <div class="weui-grids">
-        <!-- <mp-grid-group> -->
-        <mp-grid
-          icon-src="/static/images/icon_tabbar.png"
+      <div class="i-grid">
+        <i-grid
+          :type="item.type"
           v-for="item in grids"
-          label="Grid"
+          :size="24"
+          :label="item.label"
           :key="item"
         />
-        <!-- </mp-grid-group> -->
       </div>
+      <!-- 无法在i-grid-group中使用i-grid组件循环，这样无法显示 -->
+      <div style="margin-top: 20px"></div>
+      <i-grid-group>
+        <i-grid type="activity" :size="24" label="1" />
+        <i-grid type="activity" :size="24" label="2" />
+        <i-grid type="activity" :size="24" label="3" />
+        <i-grid type="activity" :size="24" label="4" />
+      </i-grid-group>
     </div>
   </div>
 </template>
 
 <script>
-import mpGridGroup from '../../../packages/grid-group'
-import mpGrid from '../../../packages/grid'
+import iGridGroup from '../../../packages/grid-group'
+import iGrid from '../../../packages/grid'
 
 export default {
   data () {
     return {
-      grids: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      grids: [{
+        label: 1,
+        type: 'activity'
+      }, {
+        label: 2,
+        type: 'activity'
+      }, {
+        label: 3,
+        type: 'activity'
+      }, {
+        label: 4,
+        type: 'activity'
+      }]
     }
   },
-  components: { mpGrid, mpGridGroup }
+  components: {
+    iGrid,
+    iGridGroup
+  }
 }
 </script>
 

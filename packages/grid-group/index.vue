@@ -1,11 +1,11 @@
 <template>
-  <div class="weui-grids">
-    <slot />
+  <div class="i-grid">
+    <slot/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MpGridGroup'
+  name: 'iGridGroup'
 }
 </script>
