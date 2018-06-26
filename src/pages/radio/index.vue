@@ -5,31 +5,48 @@
       <div class="page__desc">单选框列表</div>
     </div>
     <div class="page__bd">
-      <mp-radio
-        :title="'value: ' + radioValue"
-        :options="radioOptions"
-        v-model="radioValue"
-      />
+      <i-radio @radioChange="handleFruitChange" :lists="fruit" :position="position" />
+
+      <i-button @click="handleClick" type="ghost">切换单选框位置</i-button>
     </div>
   </div>
 </template>
 
 <script>
-import MpRadio from '../../../packages/radio'
+import iRadio from '../../../packages/radio'
+import iButton from '../../../packages/button'
 
 export default {
   data () {
     return {
-      radioOptions: [
-        { label: 'cell standard', value: 'a', disabled: true },
-        { label: 'cell standard', value: 'b' },
-        { label: 'cell standard', value: 'c' }
-      ],
-      radioValue: 'b'
+      fruit: [{
+        value: 1,
+        name: '香蕉',
+        checked: true
+      }, {
+        value: 2,
+        name: '苹果'
+      }, {
+        value: 3,
+        name: '西瓜'
+      }, {
+        value: 4,
+        name: '葡萄'
+      }],
+      position: 'left'
     }
   },
   components: {
-    MpRadio
+    iRadio,
+    iButton
+  },
+  methods: {
+    handleFruitChange (val) {
+      console.log(val)
+    },
+    handleClick () {
+      this.position = this.position.indexOf('left') !== -1 ? 'right' : 'left'
+    }
   }
 }
 </script>

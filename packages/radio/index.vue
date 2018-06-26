@@ -1,68 +1,73 @@
 <template>
-  <div>
-    <div
-      class="weui-cells__title"
-      v-text="title"
-      v-if="title"
-    />
-    <div :class="['weui-cells', {'weui-cells_after-title': title}]">
-      <radio-group @change="$emit('input', $event.target.value)">
-        <label
-          :class="['weui-cell', item.disabled ? 'weui-check__label_disabled-radio' : 'weui-check__label']"
-          v-for="item in radioOptions"
-          :key="item.value"
-        >
-          <radio
-            :disabled="item.disabled"
-            :checked="item.checked"
-            :value="item.value"
-            class="weui-check"
-          />
-          <div
-            class="weui-cell__bd"
-            v-text="item.label"
-          />
-          <div
-            class="weui-cell__ft weui-cell__ft_in-radio"
-            v-if="item.checked"
-          >
-            <icon
-              type="success_no_circle"
-              class="weui-icon-radio"
-              size="16"
+  <div class="i-cell-group" :class="iClass">
+    <div class="i-class i-radio" @click="radioTap(list)" v-for="list in lists" :key="list.value">
+      <div class="i-cell">
+        <div class="i-cell-bd i-radio-cell">
+          <label>
+            <radio 
+              :value="list.value" 
+              :checked="list.checked" 
+              :color="list.checked ? color : ''" 
+              :disabled="list.disabled" 
+              :class="['i-radio-radio', positionCls]" 
             />
-          </div>
-        </label>
-      </radio-group>
+            <div class="i-radio-title">{{list.name}}</div>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+const prefixCls = 'i-radio'
 export default {
-  name: 'MpRadio',
+  name: 'iRadio',
   props: {
-    options: {
-      type: Array,
-      required: true
+    iClass: String,
+    color: {
+      type: String,
+      default: '#2d8cf0'
     },
-    value: String,
-    title: String
+    position: {
+      type: String,
+      default: 'left' // left right
+    },
+    lists: {
+      type: Array,
+      default: [] // [{item.value, item.checked}...]
+    }
+  },
+  methods: {
+    radioTap (list) {
+      let current = []
+      this.lists.forEach((item, index) => {
+        if (list.name === item.name) {
+          this.lists.splice(index, 1, {
+            name: item.name,
+            value: item.value,
+            checked: !item.checked
+          })
+        } else {
+          this.lists.splice(index, 1, {
+            name: item.name,
+            value: item.value,
+            checked: false
+          })
+        }
+      })
+      current = this.lists.filter(list => list.checked)
+      this.$emit('radioChange', current)
+    }
   },
   computed: {
-    radioOptions () {
-      return this.options.map((item) => {
-        item.checked = item.value === this.value
-
-        return item
-      })
+    positionCls () {
+      return this.position.indexOf('left') !== -1 ? `${prefixCls}-radio-left` : `${prefixCls}-radio-right`
     }
   }
 }
 </script>
 
-<style>
-.weui-check__label_disabled-radio {
-  color: rgba(0, 0, 0, 0.3);
-}
+<style lang="less">
+@import './index.less';
 </style>
