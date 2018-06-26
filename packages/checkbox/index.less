@@ -1,6 +1,32 @@
 @import "../styles/_base.less";
 @import "../styles/_mixins.less";
 
+
+.i-cell {
+    position: relative;
+    padding: 12px 15px;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    line-height: 1.4;
+    font-size: @size-font-base;
+    overflow: hidden;
+
+    &::after{
+        .hairline();
+        border-bottom-width: 1px;
+        left: 15px;
+        right: 0;
+    }
+    &-last::after{
+        display: none;
+    }
+
+    &-bd{
+        flex: 1;
+    }
+}
+
 .i-checkbox {
     &-cell {
         &::after {

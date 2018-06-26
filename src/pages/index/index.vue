@@ -41,6 +41,12 @@
           name: '表单',
           open: false,
           pages: [{
+            url: 'input',
+            name: '输入框'
+          }, {
+            url: 'input_number',
+            name: '加减输入框'
+          }, {
             url: 'button',
             name: '按钮'
           }, {
@@ -79,6 +85,9 @@
             url: 'drawer',
             name: '抽屉'
           }, {
+            url: 'notice_bar',
+            name: '通知栏'
+          }, {
             url: 'footer',
             name: '底部'
           }, {
@@ -116,6 +125,9 @@
           }, {
             url: 'alert',
             name: '弹框'
+          }, {
+            url: 'spin',
+            name: '加载中'
           }, {
             url: 'dialog',
             name: '对话框'

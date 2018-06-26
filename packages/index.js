@@ -8,6 +8,8 @@ import iCell from './cell'
 import iCellGroup from './cell-group'
 import iCheckbox from './checkbox'
 import iDrawer from './drawer'
+import iInput from './input'
+import iInputNumber from './input-number'
 import Picker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
@@ -19,11 +21,12 @@ import Loadmore from './loadmore'
 import Message from './message'
 import Navbar from './navbar'
 import NavbarPanel from './navbar-panel'
-import Progress from './progress'
-import Radio from './radio'
+import iProgress from './progress'
+import iRadio from './radio'
 import Search from './search'
 import Slider from './slider'
 import Switch from './switch'
+import iSpin from './spin'
 
 const components = [
   iActionsheet,
@@ -35,6 +38,8 @@ const components = [
   iCellGroup,
   iCheckbox,
   iDrawer,
+  iInput,
+  iInputNumber,
   Picker,
   Field,
   Footer,
@@ -44,10 +49,11 @@ const components = [
   Message,
   Navbar,
   NavbarPanel,
-  Progress,
-  Radio,
+  iProgress,
+  iRadio,
   Search,
   Slider,
+  iSpin,
   Switch
 ]
 
@@ -80,6 +86,8 @@ export {
   iCellGroup,
   iCheckbox,
   iDrawer,
+  iInput,
+  iInputNumber,
   Picker,
   Field,
   Footer,
@@ -89,10 +97,11 @@ export {
   Message,
   Navbar,
   NavbarPanel,
-  Progress,
-  Radio,
+  iProgress,
+  iRadio,
   Search,
   Slider,
+  iSpin,
   Switch
 }
 

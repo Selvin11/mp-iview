@@ -46,6 +46,10 @@ export default {
       'pages/alert/main', // alert
       'pages/avatar/main', // avatar
       'pages/drawer/main', // drawer
+      'pages/input/main',
+      'pages/input_number/main',
+      'pages/notice_bar/main',
+      'pages/spin/main',
       'pages/card/main' // card
     ],
     window: {

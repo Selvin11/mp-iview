@@ -3,6 +3,7 @@
     class="i-icon" 
     :class="['i-icon-' + type, iClass]" 
     :style="{fontSize: size + 'px', color: color}"
+    @click="iconClick"
   >
   </div>
 </template>
@@ -27,6 +28,11 @@
       color: {
         type: String,
         default: ''
+      }
+    },
+    methods: {
+      iconClick (e) {
+        this.$emit('iconClick', e)
       }
     }
   }

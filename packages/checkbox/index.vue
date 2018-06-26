@@ -1,6 +1,6 @@
 <template>
   <div class="i-cell-group" :class="iClass">
-    <div class="i-class i-checkbox" @click="checkboxTap(list)" v-for="list in lists" :key="list.value">
+    <div class="i-checkbox" @click="checkboxTap(list)" v-for="list in lists" :key="list.value">
       <div class="i-cell">
         <div class="i-cell-bd i-checkbox-cell">
           <label>
@@ -36,11 +36,6 @@ export default {
     lists: {
       type: Array,
       default: [] // [{item.value, item.checked}...]
-    }
-  },
-  data () {
-    return {
-      positionCls: `${prefixCls}-checkbox-left`
     }
   },
   methods: {

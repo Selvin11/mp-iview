@@ -1,21 +1,21 @@
 <template>
-<!-- <div class="i-grid"> -->
   <div class="i-grid-item" :class="iClass" :style="{'width': width}">
     <div class="i-grid-icon">
       <!-- icon -->
-      <div 
+      <div
+        v-if="type" 
         class="i-icon" 
         :class="['i-icon-' + type]" 
         :style="{fontSize: size + 'px', color: color}"
       >
       </div>
       <!-- label -->
-      <div class="i-grid-label">
+      <div class="i-grid-label" v-if="label">
         <span v-text="label" />
       </div>
     </div>
+    <slot></slot>
   </div>
-<!-- </div> -->
 </template>
 
 <script>
