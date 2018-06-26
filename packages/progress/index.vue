@@ -1,57 +1,42 @@
 <template>
-  <div class="weui-progress">
-    <div class="weui-progress__bar">
-      <progress
-        :backgroundColor="backgroundColor"
-        :active-mode="animateMode"
-        :stroke-width="width"
-        :show-info="showInfo"
-        :activeColor="color"
-        :percent="percent"
-        :active="animate"
-      />
+  <div :class="['i-progress', 'i-progress-' + status, !hideInfo ? 'i-progress-show-info' : '', iClass]">
+    <div class="i-progress-outer">
+        <div class="i-progress-inner">
+          <div class="i-progress-bg" :style="{width: percent + '%',height: strokeWidth + 'px'}"></div>
+        </div>
     </div>
-    <div
-      class="weui-progress__opr"
-      v-if="showCancel"
-    >
-      <icon
-        @click="$emit('onCancel', $event)"
-        :size="cancelSize"
-        type="cancel"
-      />
+    <div class="i-progress-text" v-if="!hideInfo">
+      <div class="i-progress-text-inner">{{ percent }}%</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MpProgress',
+  name: 'iProgress',
   props: {
-    backgroundColor: {
-      type: String,
-      default: '#ebebeb'
-    },
-    animateMode: {
-      type: String,
-      default: 'forwards'
-    },
-    color: {
-      type: String,
-      default: '#09bb07'
-    },
-    width: {
+    iClass: String,
+    percent: {
       type: Number,
-      default: 3
+      default: 0
     },
-    cancelSize: {
+    // normal || active || wrong || success
+    status: {
+      type: String,
+      default: 'normal'
+    },
+    strokeWidth: {
       type: Number,
-      default: 22
+      default: 10
     },
-    showCancel: Boolean,
-    showInfo: Boolean,
-    animate: Boolean,
-    percent: Number
+    hideInfo: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
+
+<style lang="less">
+@import './index.less';
+</style>

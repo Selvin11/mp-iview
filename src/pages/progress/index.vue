@@ -5,75 +5,57 @@
       <div class="page__desc">进度条</div>
     </div>
     <div class="page__bd page__bd_spacing">
-      <mp-progress
-        :percent="50"
-      />
-
-      <mp-progress
-        :percent="80"
-        show-cancel
-      />
-
-      <mp-progress
-        :percent="progress"
-        show-cancel
-        show-info
-        animate
-      />
-
-      <div class="weui-btn-area">
-        <button
-          :disabled="disabled"
-          @click="upload"
-          type="primary"
-        >
-          上传
-        </button>
+      <div class="progress-item">
+        <i-progress percent="25"></i-progress>
+        <i-progress percent="45" status="active"></i-progress>
+        <i-progress percent="65" status="wrong"></i-progress>
+        <i-progress percent="100" status="success"></i-progress>
+        <i-progress percent="25" hide-info></i-progress>
+      </div>
+      <div class="progress-item">
+        <i-progress :percent="percent" :status="status"></i-progress>
+        <i-button @click="handleAdd" type="ghost">增加</i-button>
+        <i-button @click="handleReduce" type="ghost">减少</i-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import mpProgress from '../../../packages/progress'
+import iProgress from '../../../packages/progress'
+import iButton from '../../../packages/button'
 
 export default {
   data () {
     return {
-      disabled: false,
-      progress: 0
+      percent: 0,
+      status: 'normal'
     }
   },
-  components: { mpProgress },
+  components: {
+    iProgress,
+    iButton
+  },
   methods: {
-    upload () {
-      if (this.disabled) return
-
-      this.progress = 0
-      this.disabled = true
-
-      this.next()
-    },
-    next () {
-      if (this.progress >= 100) {
-        this.disabled = false
-
-        return
+    handleAdd () {
+      if (this.percent === 100) return
+      this.percent = this.percent + 10
+      if (this.percent === 100) {
+        this.status = 'success'
       }
-
-      this.progress += 10
-
-      setTimeout(() => {
-        this.next()
-      }, 300)
+    },
+    handleReduce () {
+      if (this.percent === 0) return
+      this.percent = this.percent - 10
+      this.status = 'normal'
     }
   }
 }
 </script>
 
 <style lang="less">
-.weui-progress {
-  margin-bottom: 24px;
+.progress-item{
+  padding: 12px;
 }
 </style>
 
