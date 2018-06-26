@@ -1,18 +1,20 @@
 <template>
   <div class="page">
     <div class="page__hd">
-      <div class="page__title">Checklist</div>
+      <div class="page__title">Checkbox</div>
       <div class="page__desc">复选框列表</div>
     </div>
     <div class="page__bd">
-      <i-checkbox @checkboxChange="handleFruitChange" :lists="fruit" :position="position">
-      </i-checkbox>
+      <i-checkbox @checkboxChange="handleFruitChange" :lists="fruit" :position="position" />
+
+      <i-button @click="handleClick" type="ghost">切换复选框位置</i-button>
     </div>
   </div>
 </template>
 
 <script>
 import iCheckbox from '../../../packages/checkbox'
+import iButton from '../../../packages/button'
 
 export default {
   data () {
@@ -36,11 +38,15 @@ export default {
     }
   },
   components: {
-    iCheckbox
+    iCheckbox,
+    iButton
   },
   methods: {
     handleFruitChange (val) {
       console.log(val)
+    },
+    handleClick () {
+      this.position = this.position.indexOf('left') !== -1 ? 'right' : 'left'
     }
   }
 }

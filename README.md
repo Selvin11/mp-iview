@@ -23,7 +23,7 @@ npm run build
 - [x] Button（基于小程序原生组件）
 - [x] Checkbox
 - [ ] Field（待优化）
-- [ ] Radio
+- [x] Radio
 - [ ] Slider
 - [ ] Switch
 - [ ] Uploader
@@ -39,15 +39,16 @@ npm run build
 - [ ] Gallery（小程序原生组件）
 - [x] Grid
 - [x] Icons（小程序原生组件）
-- [ ] List（待优化）
+- [x] Notice-Bar
 - [ ] Loadmore
 - [x] Panel
 - [ ] Preview
-- [ ] Progress
+- [x] Progress
 
 ### 操作反馈
 - [x] Actionsheet
 - [x] Alert
+- [x] Spin
 - [ ] Dialog
 - [ ] Msg
 - [ ] Picker
@@ -67,3 +68,5 @@ npm run build
 1. 在进行iActionSheet组件开发时，使用iButton组件，并对其进行循环渲染，iButton组件中含有slot。经过mpvue的编译后发现，并未对循环中不同的slot做编译，导致所有slot的编译仅有一个，从而导致了渲染bug。因此，在iActionSheet组件中目前使用小程序Button组件，mpvue中已经有组件循环 slot内容分发问题的issue，需要进一步观察从而进行优化
 
 2. 在进行Grid组件开发时，GridGroup仅作为外层包裹，但如果对Grid进行循环渲染，则页面无显示，还是slot的支持度不够的问题
+
+3. 进行Notice-bar组件开发时，发现原生小程序的动画无法被识别编译
