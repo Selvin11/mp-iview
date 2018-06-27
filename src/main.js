@@ -50,6 +50,7 @@ export default {
       'pages/input_number/main',
       'pages/notice_bar/main',
       'pages/spin/main',
+      'pages/steps/main',
       'pages/card/main' // card
     ],
     window: {

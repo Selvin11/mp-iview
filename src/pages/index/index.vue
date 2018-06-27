@@ -129,6 +129,9 @@
             url: 'spin',
             name: '加载中'
           }, {
+            url: 'steps',
+            name: '步骤条'
+          }, {
             url: 'dialog',
             name: '对话框'
           }, {

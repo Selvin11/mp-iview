@@ -27,6 +27,7 @@ import Search from './search'
 import Slider from './slider'
 import Switch from './switch'
 import iSpin from './spin'
+import iSteps from './steps'
 
 const components = [
   iActionsheet,
@@ -54,6 +55,7 @@ const components = [
   Search,
   Slider,
   iSpin,
+  iSteps,
   Switch
 ]
 
@@ -102,6 +104,7 @@ export {
   Search,
   Slider,
   iSpin,
+  iSteps,
   Switch
 }
 
