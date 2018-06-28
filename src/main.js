@@ -51,6 +51,7 @@ export default {
       'pages/notice_bar/main',
       'pages/spin/main',
       'pages/steps/main',
+      'pages/tabs/main',
       'pages/card/main' // card
     ],
     window: {

@@ -154,6 +154,9 @@
           }, {
             url: 'tabbar',
             name: '底部导航'
+          }, {
+            url: 'tabs',
+            name: '切换栏'
           }]
         }, {
           id: 'search',

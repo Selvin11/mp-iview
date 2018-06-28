@@ -28,6 +28,10 @@ import Slider from './slider'
 import iSwitch from './switch'
 import iSpin from './spin'
 import iSteps from './steps'
+import iTabbar from './tabbar'
+import iTabItem from './tabbar-item'
+import iTabs from './tabs'
+import iTab from './tab'
 
 const components = [
   iActionsheet,
@@ -56,6 +60,10 @@ const components = [
   Slider,
   iSpin,
   iSteps,
+  iTabbar,
+  iTabItem,
+  iTabs,
+  iTab,
   iSwitch
 ]
 
@@ -105,6 +113,10 @@ export {
   Slider,
   iSpin,
   iSteps,
+  iTabbar,
+  iTabItem,
+  iTabs,
+  iTab,
   iSwitch
 }
 

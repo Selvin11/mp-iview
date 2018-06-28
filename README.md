@@ -25,7 +25,7 @@ npm run build
 - [ ] Field（待优化）
 - [x] Radio
 - [ ] Slider
-- [ ] Switch
+- [s] Switch
 - [ ] Uploader
 
 ### 基础组件
@@ -56,7 +56,8 @@ npm run build
 
 ### 导航相关
 - [ ] Navbar
-- [ ] Tabbar（建议采用小程序原生的tabbar，通过设置app.json来实现）
+- [x] Tabbar（建议采用小程序原生的tabbar，通过设置app.json来实现）
+- [x] Tabs（建议采用小程序原生的tabbar，通过设置app.json来实现）
 
 ### 搜索相关
 - [ ] Searchbar（待优化）
@@ -72,3 +73,5 @@ npm run build
 3. 进行Notice-bar组件开发时，发现原生小程序的动画无法被识别编译
 
 4. 进行Tabbar组件开发时，TabbarItem中是由Badge组件包裹的，然后Tabbar包裹TabbarItem组件，但此时`props`中传递的`title`无法被渲染出来，mpvue超过三层以上的组件嵌套导致编译出现紊乱，因此将badge组件拆成原生实现了
+
+5. MpVue组件中的`props`避免使用`key`关键字，会导致页面渲染异常
