@@ -15,7 +15,7 @@
         <div v-if="title" class="i-cell-text">{{ title }}</div>
         <div v-if="label" class="i-cell-desc">{{ label }}</div>
         <span v-text="content" />
-        <!-- <slot></slot> -->
+        <slot name="content"></slot>
     </div>
     <div @click="navigateTo" class="i-cell-ft">
       <div v-if="value">{{ value }}</div>

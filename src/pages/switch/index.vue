@@ -5,43 +5,60 @@
       <div class="page__desc">开关</div>
     </div>
     <div class="page__bd">
-      <div style="padding: 0 15px">
-        <mp-switch
-          v-model="switchChecked3"
-          :is-in-cell="false"
-        />
-        {{switchChecked3}}
-      </div>
-
-      <div class="weui-cells__title">开关</div>
-      <div class="weui-cells weui-cells_after-title">
-        <mp-switch
-          :title="'标题文字：' + switchChecked"
-          v-model="switchChecked"
-        />
-        <mp-switch
-          :title="'标题文字：' + switchChecked2"
-          v-model="switchChecked2"
-          disabled
-        />
-      </div>
+      <i-cell-group>
+        <i-cell title="基本用法">
+          <div slot="footer">
+            <i-switch :value="switch1" @change="onChange"></i-switch>
+          </div>
+        </i-cell>
+        <i-cell title="自定义内容">
+          <div slot="footer">
+            <i-switch :value="switch1" size="large" @change="onChange">
+              <div slot="open">开启</div>
+              <div slot="close">关闭</div>
+            </i-switch>
+          </div>
+        </i-cell>
+        <i-cell title="图标">
+          <div slot="footer">
+            <i-switch :value="switch1" @change="onChange" slot="footer">
+              <i-icon type="right" slot="open"></i-icon>
+              <i-icon type="close" slot="close"></i-icon>
+            </i-switch>
+          </div>
+        </i-cell>
+        <i-cell title="禁止切换">
+          <div slot="footer">
+            <i-switch :value="switch1" disabled slot="footer"></i-switch>
+          </div>
+        </i-cell>
+      </i-cell-group>
     </div>
   </div>
 </template>
 
 <script>
-import MpSwitch from '../../../packages/switch'
+import iCellGroup from '../../../packages/cell-group'
+import iCell from '../../../packages/cell'
+import iIcon from '../../../packages/icon'
+import iSwitch from '../../../packages/switch'
 
 export default {
   data () {
     return {
-      switchChecked: true,
-      switchChecked2: true,
-      switchChecked3: true
+      switch1: false
     }
   },
   components: {
-    MpSwitch
+    iSwitch,
+    iCellGroup,
+    iCell,
+    iIcon
+  },
+  methods: {
+    onChange (value) {
+      this.switch1 = value
+    }
   }
 }
 </script>

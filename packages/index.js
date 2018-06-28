@@ -25,7 +25,7 @@ import iProgress from './progress'
 import iRadio from './radio'
 import Search from './search'
 import Slider from './slider'
-import Switch from './switch'
+import iSwitch from './switch'
 import iSpin from './spin'
 import iSteps from './steps'
 
@@ -56,7 +56,7 @@ const components = [
   Slider,
   iSpin,
   iSteps,
-  Switch
+  iSwitch
 ]
 
 function install (Vue) {
@@ -105,7 +105,7 @@ export {
   Slider,
   iSpin,
   iSteps,
-  Switch
+  iSwitch
 }
 
 export default {
