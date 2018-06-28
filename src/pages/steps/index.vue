@@ -7,11 +7,23 @@
     <div class="page__bd">
       <div class="i-steps-demo">
         <view class="one-tag">基本用法</view>
-        <i-steps :steps="steps" :direction="direction" />
+        <i-steps>
+          <i-step status="finish" title="已完成" content="这里是该步骤的描述信息" />
+          <i-step status="process" title="进行中" content="这里是该步骤的描述信息" />
+          <i-step title="错误" content="这里是该步骤的描述信息" />
+        </i-steps>
         <view class="one-tag">使用 icon 图标</view>
-        <i-steps :steps="steps2" />
+        <i-steps>
+          <i-step status="finish" icon="barrage" title="已完成" content="这里是该步骤的描述信息" />
+          <i-step status="process" icon="brush" title="进行中" content="这里是该步骤的描述信息" />
+          <i-step icon="collection" title="错误" content="这里是该步骤的描述信息" />
+        </i-steps>
         <view class="one-tag">步骤进度</view>
-        <i-steps :steps="steps3" :current="current" />
+        <i-steps :current="current" :direction="direction">
+          <i-step title="已完成" content="这里是该步骤的描述信息" />
+          <i-step title="进行中" content="这里是该步骤的描述信息" />
+          <i-step title="错误" content="这里是该步骤的描述信息" />
+        </i-steps>
         <i-button @click="handleClick">下一步</i-button>
       </div>
     </div>
@@ -21,56 +33,19 @@
 <script>
 import iButton from '../../../packages/button'
 import iSteps from '../../../packages/steps'
+import iStep from '../../../packages/step'
 
 export default {
   data () {
     return {
-      steps: [{
-        status: 'finish',
-        title: '已完成',
-        content: '这里是该步骤的描述信息'
-      }, {
-        status: 'process',
-        title: '进行中',
-        content: '这里是该步骤的描述信息'
-      }, {
-        status: '',
-        title: '错误',
-        content: '这里是该步骤的描述信息'
-      }],
-      steps2: [{
-        status: 'finish',
-        icon: 'barrage',
-        title: '已完成',
-        content: '这里是该步骤的描述信息'
-      }, {
-        status: 'process',
-        icon: 'brush',
-        title: '进行中',
-        content: '这里是该步骤的描述信息'
-      }, {
-        status: '',
-        icon: 'collection',
-        title: '错误',
-        content: '这里是该步骤的描述信息'
-      }],
-      steps3: [{
-        title: '已完成',
-        content: '这里是该步骤的描述信息'
-      }, {
-        title: '进行中',
-        content: '这里是该步骤的描述信息'
-      }, {
-        title: '错误',
-        content: '这里是该步骤的描述信息'
-      }],
       current: 2,
       direction: 'horizontal'
     }
   },
   components: {
     iButton,
-    iSteps
+    iSteps,
+    iStep
   },
   methods: {
     handleClick () {

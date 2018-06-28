@@ -70,3 +70,5 @@ npm run build
 2. 在进行Grid组件开发时，GridGroup仅作为外层包裹，但如果对Grid进行循环渲染，则页面无显示，还是slot的支持度不够的问题
 
 3. 进行Notice-bar组件开发时，发现原生小程序的动画无法被识别编译
+
+4. 进行Tabbar组件开发时，TabbarItem中是由Badge组件包裹的，然后Tabbar包裹TabbarItem组件，但此时`props`中传递的`title`无法被渲染出来，mpvue超过三层以上的组件嵌套导致编译出现紊乱，因此将badge组件拆成原生实现了
