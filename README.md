@@ -4,13 +4,16 @@
 
 基于MpVue框架以及iview、lui库搭建的小程序UI组件库。
 
+
+
 ## Build Setup
+
+小程序项目路径：`../mp-lui/dist`
 
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
 npm run dev
 
 # build for production with minification
