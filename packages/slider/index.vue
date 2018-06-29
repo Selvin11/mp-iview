@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'MpSlider',
+  name: 'iSlider',
   props: {
     backgroundColor: {
       type: String,

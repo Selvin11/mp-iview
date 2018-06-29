@@ -13,18 +13,16 @@ import iInputNumber from './input-number'
 import Picker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
-import Field from './field'
 import Footer from './footer'
 import iGrid from './grid'
 import iGridGroup from './grid-group'
-import Loadmore from './loadmore'
 import Message from './message'
 import Navbar from './navbar'
 import NavbarPanel from './navbar-panel'
 import iProgress from './progress'
 import iRadio from './radio'
 import Search from './search'
-import Slider from './slider'
+import iSlider from './slider'
 import iSwitch from './switch'
 import iSpin from './spin'
 import iSteps from './steps'
@@ -32,6 +30,7 @@ import iTabbar from './tabbar'
 import iTabItem from './tabbar-item'
 import iTabs from './tabs'
 import iTab from './tab'
+import iTag from './tag'
 
 const components = [
   iActionsheet,
@@ -46,24 +45,23 @@ const components = [
   iInput,
   iInputNumber,
   Picker,
-  Field,
   Footer,
   iGrid,
   iGridGroup,
-  Loadmore,
   Message,
   Navbar,
   NavbarPanel,
   iProgress,
   iRadio,
   Search,
-  Slider,
+  iSlider,
   iSpin,
   iSteps,
   iTabbar,
   iTabItem,
   iTabs,
   iTab,
+  iTag,
   iSwitch
 ]
 
@@ -99,24 +97,23 @@ export {
   iInput,
   iInputNumber,
   Picker,
-  Field,
   Footer,
   iGrid,
   iGridGroup,
-  Loadmore,
   Message,
   Navbar,
   NavbarPanel,
   iProgress,
   iRadio,
   Search,
-  Slider,
+  iSlider,
   iSpin,
   iSteps,
   iTabbar,
   iTabItem,
   iTabs,
   iTab,
+  iTag,
   iSwitch
 }
 

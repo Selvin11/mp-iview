@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import App from './App'
-import WeUI from '../packages'
+import LUI from '../packages'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
 
-Vue.use(WeUI)
+Vue.use(LUI)
 
 const app = new Vue(App)
 app.$mount()
@@ -16,7 +16,6 @@ export default {
       '^pages/index/main',
       'pages/button/main',
       'pages/list/main',
-      'pages/field/main',
       'pages/switch/main',
       'pages/checkbox/main',
       'pages/radio/main',
@@ -29,7 +28,6 @@ export default {
       'pages/gallery/main',
       'pages/grid/main',
       'pages/icons/main',
-      'pages/loadmore/main',
       'pages/panel/main',
       'pages/preview/main',
       'pages/progress/main',
@@ -52,11 +50,12 @@ export default {
       'pages/spin/main',
       'pages/steps/main',
       'pages/tabs/main',
+      'pages/tag/main',
       'pages/card/main' // card
     ],
     window: {
       navigationBarTextStyle: 'black',
-      navigationBarTitleText: 'WeUI for Mpvue',
+      navigationBarTitleText: 'MpLui',
       navigationBarBackgroundColor: '#f8f8f8',
       backgroundColor: '#f8f8f8'
     },

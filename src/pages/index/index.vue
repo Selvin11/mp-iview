@@ -53,9 +53,6 @@
             url: 'checkbox',
             name: '复选'
           }, {
-            url: 'field',
-            name: '表单项'
-          }, {
             url: 'radio',
             name: '单选'
           }, {
@@ -103,8 +100,11 @@
             url: 'list',
             name: '列表'
           }, {
-            url: 'loadmore',
-            name: '加载更多'
+            url: 'spin',
+            name: '加载'
+          }, {
+            url: 'tag',
+            name: '标签'
           }, {
             url: 'panel',
             name: '面板'
@@ -125,9 +125,6 @@
           }, {
             url: 'alert',
             name: '弹框'
-          }, {
-            url: 'spin',
-            name: '加载中'
           }, {
             url: 'steps',
             name: '步骤条'
