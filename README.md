@@ -55,7 +55,7 @@ npm run build
 - [ ] Dialog
 - [ ] Msg
 - [ ] Picker
-- [ ] Toast
+- [x] Toast
 
 ### 导航相关
 - [ ] Navbar
