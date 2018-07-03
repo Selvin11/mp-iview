@@ -5,6 +5,8 @@
 基于MpVue框架以及iview、lui库搭建的小程序UI组件库。
 
 
+[iview-weapp](https://github.com/TalkingData/iview-weapp)
+
 
 ## Build Setup
 
