@@ -5,7 +5,7 @@
 基于MpVue框架以及iview、lui库搭建的小程序UI组件库。
 
 
-[iview-weapp](https://github.com/TalkingData/iview-weapp)
+* iview小程序项目地址：[iview-weapp](https://github.com/TalkingData/iview-weapp)
 
 
 ## Build Setup
@@ -27,10 +27,9 @@ npm run build
 ### 表单
 - [x] Button（基于小程序原生组件）
 - [x] Checkbox
-- [ ] Field（待优化）
 - [x] Radio
-- [ ] Slider
-- [s] Switch
+- [x] Slider
+- [x] Switch
 - [ ] Uploader
 
 ### 基础组件
@@ -40,15 +39,14 @@ npm run build
 - [x] Col
 - [x] Row
 - [x] Drawer
-- [ ] Footer
-- [ ] Gallery（小程序原生组件）
+- [ ] Gallery
 - [x] Grid
 - [x] Icons（小程序原生组件）
 - [x] Notice-Bar
-- [ ] Loadmore
 - [x] Panel
 - [ ] Preview
 - [x] Progress
+- [ ] Footer
 
 ### 操作反馈
 - [x] Actionsheet
@@ -56,7 +54,7 @@ npm run build
 - [x] Spin
 - [ ] Dialog
 - [ ] Msg
-- [ ] Picker
+- [x] Picker
 - [ ] Toast
 
 ### 导航相关
@@ -65,7 +63,7 @@ npm run build
 - [x] Tabs（建议采用小程序原生的tabbar，通过设置app.json来实现）
 
 ### 搜索相关
-- [ ] Searchbar（待优化）
+- [ ] Searchbar
 
 
 
