@@ -7,6 +7,8 @@
 
 * iview小程序项目地址：[iview-weapp](https://github.com/TalkingData/iview-weapp)
 
+* mp-weui小程序项目地址：[mp-weui](https://github.com/youngluo/mp-weui)
+
 
 ## Build Setup
 
