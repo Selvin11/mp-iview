@@ -1,62 +1,72 @@
 <template>
-  <div class="weui-msg">
-    <div class="weui-msg__icon-area">
-      <!-- <slot name="icon"> -->
-      <icon
-        :type="type === 'error' ? 'warn' : type"
-        size="93"
-      />
-      <!-- </slot> -->
-    </div>
-    <div class="weui-msg__text-area">
-      <div
-        class="weui-msg__title"
-        v-text="title"
-      />
-      <div class="weui-msg__desc">
-        <!-- <slot> -->
-        <span v-text="content" />
-        <!-- </slot> -->
-      </div>
-    </div>
-    <div class="weui-msg__opr-area">
-      <div class="weui-btn-area">
-        <button
-          v-text="confirmText"
-          class="weui-btn"
-          type="primary"
-        />
-        <button
-          v-text="cancelText"
-          v-if="showCancel"
-          class="weui-btn"
-          type="default"
-        />
-      </div>
+  <div class="mp-lui-msg">
+    <div class="i-message" :class="{iClass, 'i-message-show': visible, 'i-message-default': type === 'default', 'i-message-success': type === 'success', 'i-message-warning': type === 'warning', 'i-message-error': type === 'error'}">
+        {{ content }}
     </div>
   </div>
 </template>
 
 <script>
+import { setData } from "../utils";
+
+const default_data = {
+  visible: false,
+  content: "",
+  duration: 2,
+  type: "default" // default || success || warning || error
+};
+
+let timmer = null;
+
 export default {
-  name: 'MpMessage',
+  name: "iMessage",
   props: {
-    type: {
+    // 附加类名，控制样式
+    iClass: {
       type: String,
-      default: 'success' // 'success', 'error'
+      default: ""
+    }
+  },
+  data () {
+    return {
+      ...default_data
+    };
+  },
+  computed: {
+    iMessageTypeClass: function () {
+      return 'i-message-' + this.type
+    }
+  },
+  methods: {
+    handleShow(options) {
+      const { type = "default", duration = 2 } = options
+
+      setData(this, {
+        ...default_data,
+        ...options,
+        visible: true
+      })
+
+      const d = this.duration * 1000
+
+      if (timmer) clearTimeout(timmer)
+      if (d !== 0) {
+        timmer = setTimeout(() => {
+          this.handleHide()
+          timmer = null
+        }, d)
+      }
     },
-    confirmText: {
-      type: String,
-      default: '确定'
-    },
-    cancelText: {
-      type: String,
-      default: '取消'
-    },
-    showCancel: Boolean,
-    content: String,
-    title: String
+
+    handleHide() {
+      setData(this, {
+        ...default_data
+      })
+    }
   }
-}
+};
 </script>
 
+<style lang="less">
+@import "./index.less";
+</style>

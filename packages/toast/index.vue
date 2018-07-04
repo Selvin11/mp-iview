@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mp-lui-toast">
     <div class="i-toast-mask" v-if="visible && mask" @click="handleHide"></div>
     <div class="i-toast" :class="iClass" v-if="visible">
       <block v-if="type !== 'default'">
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     handleShow (options) {
-      const { type = 'default', duration = 2 } = options;
+      const { type = 'default', duration = 2 } = options
 
       setData(this, {
         ...default_data,
@@ -68,12 +68,12 @@ export default {
         timmer = setTimeout(() => {
             this.handleHide()
             timmer = null
-        }, d);
+        }, d)
       }
     },
     handleHide () {
       setData(this, {
-        ...default_data,
+        ...default_data
       })
     }
   }
