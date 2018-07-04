@@ -48,6 +48,7 @@ export default {
       'pages/steps/main',
       'pages/tabs/main',
       'pages/tag/main',
+      'pages/layout/main',
       'pages/card/main' // card
     ],
     window: {
