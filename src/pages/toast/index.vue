@@ -4,7 +4,7 @@
       <div class="page__title">Toast</div>
       <div class="page__desc">弹出式提示</div>
     </div>
-    <i-button type="ghost" @click="handleText" ref="ibutton">只显示文本</i-button>
+    <i-button type="ghost" @click="handleText">只显示文本</i-button>
     <i-button type="ghost" @click="handleSuccess">成功</i-button>
     <i-button type="ghost" @click="handleWarning">警告</i-button>
     <i-button type="ghost" @click="handleError">错误</i-button>
