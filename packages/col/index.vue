@@ -1,5 +1,5 @@
 <template>
-  <view :class="['i-col', span ? 'i-col-span-' + span : '', offset ? 'i-col-offset-' + offset : '']">
+  <view :class="['i-col', span ? 'i-col-span-' + span : '', offset ? 'i-col-offset-' + offset : '', iClass]">
     <slot></slot>
   </view>
 </template>
