@@ -48,7 +48,8 @@ export default {
       'pages/steps/main',
       'pages/tabs/main',
       'pages/tag/main',
-      'pages/card/main' // card
+      'pages/card/main', // card
+      'pages/page/main'
     ],
     window: {
       navigationBarTextStyle: 'black',
