@@ -154,6 +154,9 @@
           }, {
             url: 'tabs',
             name: '切换栏'
+          }, {
+            url: 'page',
+            name: '分页'
           }]
         }, {
           id: 'search',

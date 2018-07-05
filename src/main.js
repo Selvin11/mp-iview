@@ -49,7 +49,8 @@ export default {
       'pages/tabs/main',
       'pages/tag/main',
       'pages/layout/main',
-      'pages/card/main' // card
+      'pages/card/main', // card
+      'pages/page/main'
     ],
     window: {
       navigationBarTextStyle: 'black',
