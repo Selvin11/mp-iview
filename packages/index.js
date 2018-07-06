@@ -5,6 +5,8 @@ import iBadge from './badge'
 import iButton from './button'
 import iCard from './card'
 import iCell from './cell'
+import iRow from './row'
+import iCol from './col'
 import iCellGroup from './cell-group'
 import iCheckbox from './checkbox'
 import iDrawer from './drawer'
@@ -39,6 +41,8 @@ const components = [
   iButton,
   iCard,
   iCell,
+  iRow,
+  iCol,
   iCellGroup,
   iCheckbox,
   iDrawer,
@@ -91,6 +95,8 @@ export {
   iButton,
   iCard,
   iCell,
+  iRow,
+  iCol,
   iCellGroup,
   iCheckbox,
   iDrawer,
