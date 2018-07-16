@@ -28,7 +28,8 @@ module.exports = {
         title: '表单组件',
         collapsable: false,
         children: [
-          'agree',
+          // 'agree',
+          'button',
           'checklist',
           'field',
           'radio',
@@ -39,8 +40,10 @@ module.exports = {
         title: '基础组件',
         collapsable: false,
         children: [
+          'avatar',
           'badge',
           'cell',
+          'card',
           'footer',
           'grid',
           'loadmore',
@@ -54,6 +57,7 @@ module.exports = {
         collapsable: false,
         children: [
           'actionsheet',
+          'alert',
           'dialog',
           'message',
           'picker',

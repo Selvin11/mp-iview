@@ -5,46 +5,33 @@
 ## 引入
 
 ``` js
-import MpBadge from 'mp-weui/packages/badge'
+import iBadge from 'mp-lui/packages/badge'
 
 export default {
   components: {
-    MpBadge
+    iBadge
   }
 }
-````
+```
 
 ## 示例
 
-指定颜色
-
 ``` html
-<mp-badge color="#888" />
-```
-
-指定文本
-
-``` html
-<mp-badge text="20" />
+<i-badge count="66" i-class-alone="demo-badge-alone" />
 ```
 
 ## Props
 
-### color
+| 参数           | 说明                           |   类型   | 默认值 |
+| ------------- |:-----------------------------:| :-------:| :-----------: |
+| iClass | 自定义类名 | string | - |
+| iClassAlone | 徽章提醒类名 | string   | - |
+| count | 显示数字 |  string  | - |
+| dot | 不展示数字，只有一个小红点，如需隐藏 dot ，需要设置`count`为 0 | boolean | - |
+| overflowCount | 展示封顶的数字值 | number | 99 |
 
-* Type: `string`
-* Default: `#e64340`
+## Slot
 
-显示颜色。
-
-### text
-
-* Type: `string`
-
-显示文本。
-
-### wrapClassName
-
-* Type: `string`
-
-外层容器的类名。
+| 名称 |     说明     |
+| ---- | :----------: |
+| -    | 按钮主体内容 |

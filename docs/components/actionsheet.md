@@ -5,39 +5,78 @@
 ## 引入
 
 ``` js
-import MpActionsheet from 'mp-weui/packages/actionsheet'
+import iActionsheet from 'mp-lui/packages/actionsheet'
 
 export default {
   components: {
-    MpActionsheet
+    iActionsheet
+  },
+  data () {
+    return {
+      visible: false,
+      actions: [
+        {
+          name: '选项1'
+        },
+        {
+          name: '选项2'
+        },
+        {
+          name: '去分享',
+          icon: 'share',
+          openType: 'share'
+        }
+      ]
+    }
+  },
+  methods: {
+    handleCancel () {
+      this.visible = false
+    },
+    handleClickItem (detail) {
+      const index = detail.index + 1
+      console.log(index)
+    }
   }
 }
 ```
 
 ## 示例
 
-`value` 为 `actions` 的索引值。
-
 ``` html
-<mp-actionsheet
+<i-actionsheet 
+  :visible="visible"
   :actions="actions"
-  v-model="value"
->
-  <button type="default">ActionSheet</button>
-</mp-actionsheet>
+  show-cancel 
+  @cancel="handleCancel" 
+  @click="handleClickItem" 
+/>
 ```
 
 ## Props
 
 | 参数           | 说明                           |   类型   |   默认值 |
-| ------------- |:-----------------------------:| --------:|--------:|
-| actions       | 菜单项数组，数组长度最大为 6 个    | string[ ] |        |
-| itemColor     | 菜单项文字颜色                   | string   | #000   |
-| wrapClassName | 外层容器的类名                   |  string   |        |
+| ------------- |:-----------------------------:| :-------:|:-------:|
+| iClass | 菜单外层自定义类名 | string | - |
+| iClassMask | 菜单遮罩层自定义类名            | string   | - |
+| iClassHeader | 菜单头部自定义类名            |  string   | - |
+| visible | 菜单显示隐藏 | boolean | false |
+| maskClosable | 点击遮罩层关闭菜单 | boolean | true |
+| showCancel | 显示取消区域 | boolean | false |
+| cancelText | 取消区域的文字 | string | 取消 |
+| actions | 菜单项 | array | [] |
 
+
+## Events
+
+| 事件名称 |        说明        |   回调参数   |
+| :------- | :----------------: | :----------: |
+| click    |  点击菜单项时触发  | 此菜单项的值 |
+| cancel   | 点击取消区域时触发 |      -       |
 
 ## Slot
 
-### --
+| 名称   |      说明      |
+| ------ | :------------: |
+| header | 菜单项顶部内容 |
 
-自定义显示内容。

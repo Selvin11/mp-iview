@@ -46,7 +46,6 @@ npm run build
 - [x] Icons（小程序原生组件）
 - [x] Notice-Bar
 - [x] Panel
-- [ ] Preview
 - [x] Progress
 - [ ] Footer
 
