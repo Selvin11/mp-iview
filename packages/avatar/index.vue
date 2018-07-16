@@ -1,6 +1,6 @@
 <template>
   <div :class="['i-avatar', 'i-avatar-' + shape, 'i-avatar-' + size, {'i-avatar-image': src}, iClass]">
-    <img :src="src" v-if="src !== ''" />
+    <img :src="src" v-if="src" />
     <div class="i-avatar-string" v-else>
       <slot></slot>
     </div>

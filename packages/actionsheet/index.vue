@@ -6,9 +6,10 @@
         <slot name="header"></slot>
       </div>
       <div class="i-as-actions">
-        <div class="i-as-action-itemMask" v-for="(item, index) in actions" :key="index">
+        <div class="i-as-action-item" v-for="(item, index) in actions" :key="index">
           <button
             class="i-btn i-btn-long i-btn-large i-btn-ghost i-btn-square"
+            :plain="true"
             :data-index="index"
             @click="handleClickItem" 
             :open-type="item.openType"
@@ -19,9 +20,10 @@
           </button>
         </div>
       </div>
-      <div class="i-as-cancel">
+      <div class="i-as-cancel" v-if="showCancel">
         <button
           class="i-btn i-btn-long i-btn-large i-btn-ghost i-btn-square i-as-cancel-btn"
+          :plain="true"
           @click="handleClickCancel" 
         >
           {{ cancelText }}
@@ -94,6 +96,6 @@
   }
 </script>
 <style lang="less">
-  @import './index.less';
   @import '../button/index.less';
+  @import './index.less';
 </style>

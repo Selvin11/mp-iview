@@ -86,7 +86,6 @@ export default {
   methods: {
     preview (rawFile) {
       if (rawFile.failure) return
-
       wx.previewImage({
         current: rawFile.path,
         urls: this.files.filter(file => !file.failure).map(file => file.path)
@@ -95,3 +94,7 @@ export default {
   }
 }
 </script>
+<style lang="less">
+  @import "./index.less";
+</style>
+

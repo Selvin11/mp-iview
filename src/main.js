@@ -21,15 +21,12 @@ export default {
       'pages/radio/main',
       'pages/slider/main',
       'pages/uploader/main',
-      // 'pages/article/main',
       'pages/badge/main',
-      // 'pages/flex/main',
       'pages/footer/main',
       'pages/gallery/main',
       'pages/grid/main',
       'pages/icons/main',
       'pages/panel/main',
-      'pages/preview/main',
       'pages/progress/main',
       'pages/actionsheet/main',
       'pages/dialog/main',
@@ -51,7 +48,9 @@ export default {
       'pages/steps/main',
       'pages/tabs/main',
       'pages/tag/main',
-      'pages/card/main' // card
+      'pages/layout/main',
+      'pages/card/main', // card
+      'pages/page/main'
     ],
     window: {
       navigationBarTextStyle: 'black',
