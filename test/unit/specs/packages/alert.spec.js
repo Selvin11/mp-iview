@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import sinon from 'sinon'
 import iAlert from 'packages/alert'
 
 describe('# alert.vue test case', () => {
@@ -588,6 +589,93 @@ describe('# alert.vue test case', () => {
 
     it(`desc 有值传入 Content of prompt. Content of prompt.，则 <div class="i-alert-desc"> <slot name="desc"></slot></div> 的值为：Content of prompt. Content of prompt.`, () => {
       expect(wrapper.find('.i-alert-desc').text()).to.equal('Content of prompt. Content of prompt.')
+    })
+  })
+
+  describe(`用法15：type="error" show-icon desc 3个参数一起用
+    <i-alert type="error" show-icon desc>
+      <h3>An error prompt</h3>
+      <view slot="desc">Content of prompt. Content of prompt.</view>
+    </i-alert>
+  `, () => {
+    const template = `
+      <i-alert type="error" show-icon desc>
+        <h3>An error prompt</h3>
+        <view slot="desc">Content of prompt. Content of prompt.</view>
+      </i-alert>
+    `
+    const alertInstance = {
+      template: template,
+      components: {
+        iAlert
+      }
+    }
+    const wrapper = mount(alertInstance)
+
+    it(`针对 :class="['i-alert', 'i-alert-' + type, {'i-alert-with-icon': showIcon}, {'i-alert-with-desc': desc}, iClass]" v-if="!closed" class 应该为：['i-alert', 'i-alert-error', 'i-alert-with-icon', 'i-alert-with-desc']`, () => {
+      expect(wrapper.classes()).deep.equal(['i-alert', 'i-alert-error', 'i-alert-with-icon', 'i-alert-with-desc'])
+    })
+
+    it(`wrapper.find('h3').text() 为：An info prompt`, () => {
+      expect(wrapper.find('h3').text()).to.equal('An error prompt')
+    })
+
+    it(`show-icon 的值为true时： <div v-if="showIcon" class="i-alert-icon"> 渲染存在`, () => {
+      expect(wrapper.find('.i-alert-icon > .i-icon-delete').exists()).to.be.true
+    })
+
+    it(`show-icon 的值为 true，desc 值为 true，则： :size="desc?24:16" 值为 font-size:24px;`, () => {
+      expect(wrapper.find('.i-alert-icon > .i-icon-delete').attributes().style).to.equal('font-size: 24px;')
+    })
+
+    it(`desc 有值传入，则 <div class="i-alert-desc"> <slot name="desc"></slot></div> 的值不为空`, () => {
+      expect(wrapper.find('.i-alert-desc').text()).to.not.be.empty
+    })
+
+    it(`desc 有值传入 Content of prompt. Content of prompt.，则 <div class="i-alert-desc"> <slot name="desc"></slot></div> 的值为：Content of prompt. Content of prompt.`, () => {
+      expect(wrapper.find('.i-alert-desc').text()).to.equal('Content of prompt. Content of prompt.')
+    })
+  })
+
+  describe(`用法16：closable @close="handleClick" 2个参数一起用
+    <i-alert closable @close="handleClick">
+      An info prompt
+    </i-alert>
+  `, () => {
+    // 使用sinon来提供callback模拟数据来判断callback是否被调用
+    const clickMethodStub = sinon.stub()
+    const template = `
+     <div>
+        <i-alert closable @close="handleClick">
+          An info prompt
+        </i-alert>
+     </div>
+    `
+    const alertInstance = {
+      template: template,
+      methods: {
+        handleClick: clickMethodStub
+      },
+      components: {
+        iAlert
+      }
+    }
+    const wrapper = mount(alertInstance)
+
+    it(`针对 :class="['i-alert', 'i-alert-' + type, {'i-alert-with-icon': showIcon}, {'i-alert-with-desc': desc}, iClass]" v-if="!closed" class 应该为：['i-alert', 'i-alert-info']`, () => {
+      expect(wrapper.find(iAlert).classes()).deep.equal(['i-alert', 'i-alert-info'])
+    })
+
+    it(`传入参数：closable，则  <div class="i-alert-close" v-if="closable" @click="handleTap">
+    <i-icon type="close"></i-icon>
+  </div> 会被渲染出来`, () => {
+      expect(wrapper.find('.i-alert-close').exists()).to.be.true
+    })
+
+    it(`close 图标被点击后，i-alert 组件则被销毁，且触发 handleTap $emit('close') 绑定函数`, () => {
+      wrapper.find('.i-alert-close').trigger('click')
+      expect(wrapper.find('.i-alert').exists()).to.be.false
+      expect(clickMethodStub.called).to.be.true
     })
   })
 })

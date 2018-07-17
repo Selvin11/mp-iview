@@ -12,7 +12,7 @@ module.exports = function (config) {
     ],
     // 预处理器
     preprocessors: {
-      '**/*.spec.js': ['webpack']
+      '**/*.spec.js': ['webpack', 'sourcemap']
     },
     // webpack配置
     webpack: webpackConfig,
