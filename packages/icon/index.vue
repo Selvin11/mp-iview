@@ -32,7 +32,7 @@
     },
     methods: {
       iconClick (e) {
-        this.$emit('iconClick', e)
+        this.$emit('click', e)
       }
     }
   }

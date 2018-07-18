@@ -6,128 +6,115 @@
     </div>
     <div class="page__bd">
       <div class="icon-box">
-        <icon
-          type="success"
-          size="93"
-        />
+        <icon type="success" size="93" />
         <div class="icon-box__ctn">
           <div class="icon-box__title">成功</div>
           <div class="icon-box__desc">用于表示操作顺利达成</div>
         </div>
       </div>
       <div class="icon-box">
-        <icon
-          type="info"
-          size="93"
-        />
+        <icon type="info" size="93" />
         <div class="icon-box__ctn">
           <div class="icon-box__title">提示</div>
           <div class="icon-box__desc">用于表示信息提示；也常用于缺乏条件的操作拦截，提示用户所需信息</div>
         </div>
       </div>
       <div class="icon-box">
-        <icon
-          color="#FFBE00"
-          type="warn"
-          size="93"
-        />
+        <icon color="#FFBE00" type="warn" size="93" />
         <div class="icon-box__ctn">
           <div class="icon-box__title">普通警告</div>
           <div class="icon-box__desc">用于表示操作后将引起一定后果的情况</div>
         </div>
       </div>
       <div class="icon-box">
-        <icon
-          type="warn"
-          size="93"
-        />
+        <icon type="warn" size="93" />
         <div class="icon-box__ctn">
           <div class="icon-box__title">强烈警告</div>
           <div class="icon-box__desc">用于表示操作后将引起严重的不可挽回的后果的情况</div>
         </div>
       </div>
       <div class="icon-box">
-        <icon
-          type="waiting"
-          size="93"
-        />
+        <icon type="waiting" size="93" />
         <div class="icon-box__ctn">
           <div class="icon-box__title">等待</div>
           <div class="icon-box__desc">用于表示等待</div>
         </div>
       </div>
       <div class="icon_sp_area">
-        <icon
-          type="success"
-          size="23"
-        />
-        <icon
-          type="success_no_circle"
-          size="23"
-        />
-        <icon
-          type="circle"
-          size="23"
-        />
-        <icon
-          color="#F43530"
-          type="warn"
-          size="23"
-        />
-        <icon
-          type="download"
-          size="23"
-        />
-        <icon
-          type="info_circle"
-          size="23"
-        />
-        <icon
-          type="cancel"
-          size="23"
-        />
-        <icon
-          type="search"
-          size="20"
-        />
+        <icon type="success" size="23" />
+        <icon type="success_no_circle" size="23" />
+        <icon type="circle" size="23" />
+        <icon color="#F43530" type="warn" size="23" />
+        <icon type="download" size="23" />
+        <icon type="info_circle" size="23" />
+        <icon type="cancel" size="23" />
+        <icon type="search" size="20" />
       </div>
+    </div>
+    <div class="icon-item" v-for="(item, index) in list" :key="index">
+      <i-icon :type="item" size="28" color="#80848f"></i-icon>
+      <div class="icon-item-name">{{ item }}</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+  import iIcon from '../../../packages/icon'
+  export default {
+    components: {
+      iIcon
+    },
+    data () {
+      return {
+        list: ['accessory', 'activity', 'activity_fill']
+      }
+    }
+  }
 </script>
 
 <style lang="less">
-icon {
-  margin-right: 13px;
-}
-.page__bd {
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: left;
-}
-.icon-box {
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-}
-.icon-box__ctn {
-  flex-shrink: 100;
-}
-.icon-box__title {
-  font-size: 20px;
-}
-.icon-box__desc {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #888888;
-}
-.icon_sp_area {
-  margin-top: 10px;
-  text-align: left;
-}
+  icon {
+    margin-right: 13px;
+  }
+
+  .page__bd {
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: left;
+  }
+
+  .icon-box {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-box__ctn {
+    flex-shrink: 100;
+  }
+
+  .icon-box__title {
+    font-size: 20px;
+  }
+
+  .icon-box__desc {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #888888;
+  }
+
+  .icon_sp_area {
+    margin-top: 10px;
+    text-align: left;
+  }
+  .icon-item{
+    display: block;
+    padding: 16px 0;
+    width: 33.33%;
+    float: left;
+    text-align: center;
+  }
+  .icon-item-name{
+      font-size: 10px;
+  }
 </style>
-
-

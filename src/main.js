@@ -22,7 +22,6 @@ export default {
       'pages/slider/main',
       'pages/uploader/main',
       'pages/badge/main',
-      'pages/footer/main',
       'pages/gallery/main',
       'pages/grid/main',
       'pages/icons/main',
@@ -31,13 +30,10 @@ export default {
       'pages/actionsheet/main',
       'pages/dialog/main',
       'pages/msg/main',
-      'pages/msg_success/main',
-      'pages/msg_fail/main',
       'pages/picker/main',
       'pages/toast/main',
       'pages/navbar/main',
       'pages/tabbar/main',
-      'pages/searchbar/main',
       'pages/alert/main', // alert
       'pages/avatar/main', // avatar
       'pages/drawer/main', // drawer

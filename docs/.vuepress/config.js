@@ -21,17 +21,19 @@ module.exports = {
     editLinkText: '帮助我们改善此页面！',
     sidebarDepth: 1,
     nav: [
-      { text: '组件', link: '/components/agree' } // 顶部右侧菜单
+      { text: '组件', link: '/components/button' } // 顶部右侧菜单
     ],
     sidebar: {
       '/components/': [{
         title: '表单组件',
         collapsable: false,
         children: [
-          // 'agree',
           'button',
+          'checkbox',
           'checklist',
           'field',
+          'input',
+          'input-number',
           'radio',
           'slider',
           'switch',
@@ -44,13 +46,16 @@ module.exports = {
           'badge',
           'cell',
           'card',
+          'drawer',
           'footer',
           'grid',
           'loadmore',
+          'layout',
           'navbar',
           'panel',
           'preview',
           'progress',
+          'icon',
           'search'
         ]}, {
         title: '操作反馈',

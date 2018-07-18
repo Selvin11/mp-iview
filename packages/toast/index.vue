@@ -23,17 +23,17 @@
 import { setData } from '../utils'
 import iIcon from '../icon'
 
-const default_data = {
+const defaultData = {
   visible: false,
   content: '',
   icon: '',
   image: '',
   duration: 2,
   mask: true,
-  type: 'default', // default || success || warning || error || loading
-};
+  type: 'default' // default || success || warning || error || loading
+}
 
-let timmer = null;
+let timmer = null
 
 export default {
   name: 'iToast',
@@ -49,15 +49,15 @@ export default {
   },
   data () {
     return {
-      ...default_data
+      ...defaultData
     }
   },
   methods: {
     handleShow (options) {
-      const { type = 'default', duration = 2 } = options
+      // const { type = 'default', duration = 2 } = options
 
       setData(this, {
-        ...default_data,
+        ...defaultData,
         ...options,
         visible: true
       })
@@ -66,14 +66,14 @@ export default {
       if (timmer) clearTimeout(timmer)
       if (d !== 0) {
         timmer = setTimeout(() => {
-            this.handleHide()
-            timmer = null
+          this.handleHide()
+          timmer = null
         }, d)
       }
     },
     handleHide () {
       setData(this, {
-        ...default_data
+        ...defaultData
       })
     }
   }

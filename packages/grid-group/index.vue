@@ -13,8 +13,9 @@ export default {
     }
   },
   name: 'iGridGroup',
-  mounted() {
-    const children = this.$children, len = children.length
+  mounted () {
+    const children = this.$children
+    const len = children.length
     if (len === 0) {
       return
     }

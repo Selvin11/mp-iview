@@ -5,7 +5,7 @@
       <div class="page__desc">复选框列表</div>
     </div>
     <div class="page__bd">
-      <i-checkbox @checkboxChange="handleFruitChange" :lists="fruit" :position="position" />
+      <i-checkbox @checkbox-change="handleFruitChange" :lists="fruit" :position="position" />
 
       <i-button @click="handleClick" type="ghost">切换复选框位置</i-button>
     </div>

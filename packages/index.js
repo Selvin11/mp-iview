@@ -1,4 +1,3 @@
-import '../lib/style.css' // weui css
 import iActionsheet from './actionsheet'
 import iAlert from './alert'
 import iBadge from './badge'
@@ -15,7 +14,6 @@ import iInputNumber from './input-number'
 import Picker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
-import Footer from './footer'
 import iGrid from './grid'
 import iGridGroup from './grid-group'
 import Message from './message'
@@ -23,7 +21,6 @@ import Navbar from './navbar'
 import NavbarPanel from './navbar-panel'
 import iProgress from './progress'
 import iRadio from './radio'
-import Search from './search'
 import iSlider from './slider'
 import iSwitch from './switch'
 import iSpin from './spin'
@@ -49,7 +46,6 @@ const components = [
   iInput,
   iInputNumber,
   Picker,
-  Footer,
   iGrid,
   iGridGroup,
   Message,
@@ -57,7 +53,6 @@ const components = [
   NavbarPanel,
   iProgress,
   iRadio,
-  Search,
   iSlider,
   iSpin,
   iSteps,
@@ -103,7 +98,6 @@ export {
   iInput,
   iInputNumber,
   Picker,
-  Footer,
   iGrid,
   iGridGroup,
   Message,
@@ -111,7 +105,6 @@ export {
   NavbarPanel,
   iProgress,
   iRadio,
-  Search,
   iSlider,
   iSpin,
   iSteps,
