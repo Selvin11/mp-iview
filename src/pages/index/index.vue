@@ -76,6 +76,9 @@
             url: 'badge',
             name: '徽章'
           }, {
+            url: 'layout',
+            name: '栅格布局'
+          }, {
             url: 'card',
             name: '卡片'
           }, {
@@ -108,9 +111,6 @@
           }, {
             url: 'panel',
             name: '面板'
-          }, {
-            url: 'preview',
-            name: '表单预览'
           }, {
             url: 'progress',
             name: '进度条'
@@ -154,6 +154,9 @@
           }, {
             url: 'tabs',
             name: '切换栏'
+          }, {
+            url: 'page',
+            name: '分页'
           }]
         }, {
           id: 'search',

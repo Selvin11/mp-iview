@@ -1,59 +1,158 @@
 <template>
   <div class="page">
-    <div class="page__hd">
-      <div class="page__title">Dialog</div>
-      <div class="page__desc">对话框，采用小程序原生的modal</div>
+    <div style="margin-top: 100px">
+      <i-button @click="handleOpen1">普通对话框</i-button>
+      <i-button @click="handleOpen2">无标题对话框</i-button>
+      <i-button @click="handleOpen3">自定义按钮对话框</i-button>
+      <i-button @click="handleOpen4">纵向按钮，自定义颜色及图标</i-button>
+      <i-button @click="handleOpen5">异步操作</i-button>
     </div>
-    <div class="page__bd">
-      <P class="page__desc">{{message}}</P>
-      <div class="weui-btn-area">
-        <button
-          @click="openConfirm"
-          class="weui-btn"
-          type="default"
-        >
-          Confirm Dialog
-        </button>
-        <button
-          @click="openAlert"
-          class="weui-btn"
-          type="default"
-        >
-          Alert Dialog
-        </button>
-      </div>
-    </div>
+    <i-dialog title="标题" :visible="visible1" @ok="handleClose1" @cancel="handleClose1">
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+      <div>一些文本</div>
+    </i-dialog>
+
+    <i-dialog :visible="visible2" @ok="handleClose2" @cancel="handleClose2">
+      <div>这是一个无标题的对话框</div>
+    </i-dialog>
+
+    <i-dialog title="支付" :visible="visible3" :actions="actions3" @click="handleClick3">
+      <div>请选择支付方式</div>
+    </i-dialog>
+
+    <i-dialog title="纵向排列的按钮" :visible="visible4" :actions="actions4" :action-mode="vertical" @click="handleClick4">
+
+    </i-dialog>
+
+    <i-dialog title="删除确认" :visible="visible5" :actions="actions5" @click="handleClick5">
+      <div>删除后无法恢复哦</div>
+    </i-dialog>
   </div>
 </template>
 
 <script>
+import iDialog from '../../../packages/dialog'
+import iButton from '../../../packages/button'
+import {$Toast} from '../../../packages/base/index'
 export default {
+  components: {
+    iDialog,
+    iButton
+  },
   data () {
     return {
-      message: ''
+      visible1: false,
+      visible2: false,
+      visible3: false,
+      visible4: false,
+      visible5: false,
+      actions3: [
+        {
+          name: '现金支付',
+          color: '#2d8cf0'
+        },
+        {
+          name: '微信支付',
+          color: '#19be6b'
+        },
+        {
+          name: '取消'
+        }
+      ],
+      actions4: [
+        {
+          name: '按钮1'
+        },
+        {
+          name: '按钮2',
+          color: '#ff9900'
+        },
+        {
+          name: '按钮3',
+          icon: 'search'
+        }
+      ],
+      actions5: [
+        {
+          name: '取消'
+        },
+        {
+          name: '删除',
+          color: '#ed3f14',
+          loading: false
+        }
+      ]
     }
   },
   methods: {
-    openConfirm () {
-      const self = this
-
-      this.$dialog.confirm('弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内', '弹窗标题', {
-        onOk () {
-          self.message = 'confirm：用户点击了确定'
-        },
-        onCancel () {
-          self.message = 'confirm：用户点击了取消'
-        }
-      })
+    handleOpen1 () {
+      this.visible1 = true
     },
-    openAlert () {
-      const self = this
+    handleClose1 () {
+      this.visible1 = false
+      console.log('call from cancel')
+    },
+    handleOpen2 () {
+      this.visible2 = true
+    },
+    handleClose2 () {
+      this.visible2 = false
+    },
 
-      this.$dialog.alert('弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内', {
-        onOk () {
-          self.message = 'alert：用户点击了确定'
-        }
-      })
+    handleOpen3 () {
+      this.visible3 = true
+    },
+
+    handleClick3 (index) {
+      if (index === '0') {
+        $Toast({
+          content: '点击了现金支付'
+        })
+      } else if (index === '1') {
+        $Toast({
+          content: '点击了微信支付'
+        })
+      }
+      this.visible3 = false
+    },
+
+    handleOpen4 () {
+      this.visible4 = true
+    },
+
+    handleClick4 () {
+      this.visible4 = false
+    },
+
+    handleOpen5 () {
+      this.visible5 = true
+    },
+
+    handleClick5 (index) {
+      if (index === 0) {
+        this.visible5 = false
+      } else {
+        const action = [...this.actions5]
+        action[1].loading = true
+
+        this.actions5 = action
+        $Toast({
+          content: '删除成功！',
+          type: 'success'
+        })
+        setTimeout(() => {
+          action[1].loading = false
+          this.visible5 = false
+          this.actions5 = action
+        }, 2000)
+      }
     }
   }
 }
