@@ -4,12 +4,12 @@
       <div class="i-cell">
         <div class="i-cell-bd i-checkbox-cell">
           <label>
-            <radio 
-              :value="list.value" 
-              :checked="list.checked" 
-              :color="list.checked ? color : ''" 
-              :disabled="list.disabled" 
-              :class="['i-checkbox-radio', positionCls]" 
+            <radio
+              :value="list.value"
+              :checked="list.checked"
+              :color="list.checked ? color : ''"
+              :disabled="list.disabled"
+              :class="['i-checkbox-radio', positionCls]"
             />
             <div class="i-checkbox-title">{{list.name}}</div>
           </label>

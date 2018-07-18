@@ -1,6 +1,6 @@
 <template>
-  <div 
-    :class="['i-alert', 'i-alert-' + type, {'i-alert-with-icon': showIcon}, {'i-alert-with-desc': desc}, iClass]" 
+  <div
+    :class="['i-alert', 'i-alert-' + type, {'i-alert-with-icon': showIcon}, {'i-alert-with-desc': desc}, iClass]"
     v-if="!closed"
   >
     <div v-if="showIcon" class="i-alert-icon">
