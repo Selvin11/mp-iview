@@ -1,6 +1,6 @@
 var utils = require('./utils')
 var config = require('../config')
-var isProduction = process.env.NODE_ENV === 'production'
+var isProduction = process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development'
 // for mp
 // var isProduction = true
 

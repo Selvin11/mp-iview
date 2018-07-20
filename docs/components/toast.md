@@ -1,11 +1,11 @@
 # Toast
 
-> 弹出式提示
+> 顶部信息提示
 
 ## 引入
 
 ```js
-import iToast from 'mp-lui/packages/message'
+import iToast from 'mp-lui/packages/toast'
 import iButton from 'mp-lui/packages/button'
 import {$Toast} from 'mp-lui/packages/base/index'
 

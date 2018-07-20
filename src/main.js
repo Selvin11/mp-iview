@@ -32,7 +32,6 @@ export default {
       'pages/msg/main',
       'pages/picker/main',
       'pages/toast/main',
-      'pages/navbar/main',
       'pages/tabbar/main',
       'pages/alert/main', // alert
       'pages/avatar/main', // avatar

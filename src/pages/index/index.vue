@@ -64,6 +64,9 @@
           }, {
             url: 'uploader',
             name: '上传'
+          }, {
+            url: 'progress',
+            name: '进度条'
           }]
         }, {
           id: 'widget',
@@ -84,9 +87,6 @@
           }, {
             url: 'drawer',
             name: '抽屉'
-          }, {
-            url: 'notice_bar',
-            name: '通知栏'
           }, {
             url: 'footer',
             name: '底部'
@@ -111,9 +111,6 @@
           }, {
             url: 'panel',
             name: '面板'
-          }, {
-            url: 'progress',
-            name: '进度条'
           }]
         }, {
           id: 'feedback',
@@ -146,8 +143,8 @@
           name: '导航相关',
           open: false,
           pages: [{
-            url: 'navbar',
-            name: '顶部导航'
+            url: 'notice_bar',
+            name: '通知栏'
           }, {
             url: 'tabbar',
             name: '底部导航'

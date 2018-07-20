@@ -37,7 +37,7 @@ export default {
 ## 示例
 
 ```html
-<i-checkbox @checkbox-change="handleFruitChange" :lists="fruit" :position="position" />
+<i-checkbox @change="handleFruitChange" :lists="fruit" :position="position" />
 ```
 
 ## Props
@@ -48,4 +48,10 @@ export default {
 | color    |  选中后的颜色  | boolean |      -      | # 2d8cf0 |
 | position | 选择框排列方向 | string  | left，right |   left   |
 | lists    |   复选框对象   |  array  |      -      |    -     |
+
+## Events
+
+| 事件名称 |      说明      | 回调参数 |
+| :------- | :------------: | :------: |
+| change   | 页数变化时触发 | current  |
 

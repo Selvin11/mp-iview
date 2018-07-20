@@ -1,67 +1,57 @@
 # Radio
 
-> 单选框列表
+> 单选框
 
 ## 引入
 
-``` js
-import MpRadio from 'mp-weui/packages/radio'
+```js
+import iRadio from 'mp-lui/packages/radio'
 
 export default {
   components: {
-    MpRadio
+    iRadio
+  },
+  data () {
+    return {
+      fruit: [{
+        value: 1,
+        name: '香蕉',
+        checked: true
+      }, {
+        value: 2,
+        name: '苹果'
+      }, {
+        value: 3,
+        name: '西瓜',
+        checked: true
+      }, {
+        value: 4,
+        name: '葡萄'
+      }],
+      position: 'left'
+    }
   }
 }
 ```
 
 ## 示例
 
-定义数据项
-
-``` js
-this.options = [
-  {
-    label: '被禁用',
-    value: 'A',
-    disabled: true
-  },
-  {
-    label: '选项B',
-    value: 'B'
-  },
-  {
-    label: '选项C',
-    value: 'C'
-  }
-]
-```
-
-使用
-
-``` html
-<mp-radio
-  v-model="radioValue"
-  :options="options"
-  :title="单选列表项"
-/>
+```html
+<i-checkbox @change="handleFruitChange" :lists="fruit" :position="position" />
 ```
 
 ## Props
 
-### options
+| 参数     |      说明      |  类型   |   可选值    |  默认值  |
+| -------- | :------------: | :-----: | :---------: | :------: |
+| iClass   |   自定义类名   | string  |      -      |    -     |
+| color    |  选中后的颜色  | boolean |      -      | # 2d8cf0 |
+| position | 选择框排列方向 | string  | left，right |   left   |
+| lists    |   复选框对象   |  array  |      -      |    -     |
 
-* Type: `object[]`
+## Events
 
-数据项。
+| 事件名称 |      说明      | 回调参数 |
+| :------- | :------------: | :------: |
+| change   | 页数变化时触发 | current  |
 
-### title
-
-* Type: `string`
-
-标题，显示在列表上方。
-
-### value
-
-* Type: `string`
-
-绑定值。

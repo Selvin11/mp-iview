@@ -5,11 +5,11 @@
 ## 引入
 
 ``` js
-import MpPicker from 'mp-weui/packages/picker'
+import iPicker from 'mp-lui/packages/picker'
 
 export default {
   components: {
-    MpPicker
+    iPicker
   }
 }
 ```
@@ -21,24 +21,24 @@ export default {
 单列选择器
 
 ``` html
-<mp-picker
+<i-picker
     v-model="value"
     :range="array"
   >
   <button type="default">单列选择器</button>
-</mp-picker>
+</i-picker>
 ```
 
 多列选择器
 
 ``` html
-<mp-picker
+<i-picker
   v-model="mValue"
   :range="mArray"
   multiple
 >
   <button type="default">多列选择器</button>
-</mp-picker>
+</i-picker>
 ```
 
 ## Props

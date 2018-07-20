@@ -51,7 +51,7 @@ export default {
         }
       })
       current = this.lists.filter(list => list.checked)
-      this.$emit('checkboxChange', current)
+      this.$emit('change', current)
     }
   },
   computed: {

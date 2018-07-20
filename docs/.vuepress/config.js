@@ -30,7 +30,6 @@ module.exports = {
         children: [
           'button',
           'checkbox',
-          'checklist',
           'field',
           'input',
           'input-number',

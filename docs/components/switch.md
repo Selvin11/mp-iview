@@ -4,61 +4,56 @@
 
 ## 引入
 
-``` js
-import MpSwitch from 'mp-weui/packages/switch'
+```js
+import iSwitch from 'mp-lui/packages/switch'
 
 export default {
   components: {
-    MpSwitch
+    iSwitch
+  },
+  data () {
+    return {
+      switch1: false
+    }
+  },
+  methods: {
+    onChange (value) {
+      this.switch1 = value
+    }
   }
 }
-````
+```
 
 ## 示例
 
-使用
-
-``` html
-<mp-switch
-  title="标题文字"
-  v-model="value"
-/>
-```
-
-禁用
-
-``` html
-<mp-switch
-  title="标题文字"
-  v-model="value"
-  disabled
-/>
+```html
+<i-switch :value="switch1" @change="onChange"></i-switch>
+<i-switch :value="switch1" size="large" @change="onChange">
+  <div slot="open">开启</div>
+  <div slot="close">关闭</div>
+</i-switch>
 ```
 
 ## Props
 
-### disabled
+| 参数     |    说明    |  类型   |        可选值         | 默认值  |
+| -------- | :--------: | :-----: | :-------------------: | :-----: |
+| iClass   | 自定义类名 | string  |           -           |    -    |
+| value    |  开关的值  | boolean |           -           |  false  |
+| size     |    大小    | string  | large，small，default | default |
+| disabled |    禁用    | boolean |           -           |  false  |
+| name     |    名称    | string  |           -           |    -    |
 
-* Type: `boolean`
-* Default: `false`
+## Events
 
-是否禁用。
+| 事件名称 |        说明        | 回调参数 |
+| :------- | :----------------: | :------: |
+| change   | 开关状态变化时触发 |  event   |
 
-### isInCell
+## Slot
 
-* Type: `boolean`
-* Default: `true`
+| 名称  |   说明   |
+| ----- | :------: |
+| open  | 开的内容 |
+| close | 关的内容 |
 
-是否在列表单元格中显示。
-
-### title
-
-* Type: `string`
-
-标题，如果 isInCell 为 true，则显示在最左边。
-
-### value
-
-* Type: `boolean`
-
-绑定值。

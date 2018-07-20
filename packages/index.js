@@ -11,14 +11,12 @@ import iCheckbox from './checkbox'
 import iDrawer from './drawer'
 import iInput from './input'
 import iInputNumber from './input-number'
-import Picker from './picker'
+import iPicker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
 import iGrid from './grid'
 import iGridGroup from './grid-group'
 import Message from './message'
-import Navbar from './navbar'
-import NavbarPanel from './navbar-panel'
 import iProgress from './progress'
 import iRadio from './radio'
 import iSlider from './slider'
@@ -30,6 +28,7 @@ import iTabItem from './tabbar-item'
 import iTabs from './tabs'
 import iTab from './tab'
 import iTag from './tag'
+import iUploader from './uploader-base'
 
 const components = [
   iActionsheet,
@@ -45,12 +44,9 @@ const components = [
   iDrawer,
   iInput,
   iInputNumber,
-  Picker,
+  iPicker,
   iGrid,
   iGridGroup,
-  Message,
-  Navbar,
-  NavbarPanel,
   iProgress,
   iRadio,
   iSlider,
@@ -61,6 +57,7 @@ const components = [
   iTabs,
   iTab,
   iTag,
+  iUploader,
   iSwitch
 ]
 
@@ -71,6 +68,7 @@ function install (Vue) {
   })
 
   Vue.$dialog = Vue.prototype.$dialog = Dialog
+  Vue.$message = Vue.prototype.$message = Message
   Vue.$toast = Vue.prototype.$toast = Toast
 }
 
@@ -97,12 +95,9 @@ export {
   iDrawer,
   iInput,
   iInputNumber,
-  Picker,
+  iPicker,
   iGrid,
   iGridGroup,
-  Message,
-  Navbar,
-  NavbarPanel,
   iProgress,
   iRadio,
   iSlider,
@@ -113,6 +108,7 @@ export {
   iTabs,
   iTab,
   iTag,
+  iUploader,
   iSwitch
 }
 

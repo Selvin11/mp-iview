@@ -5,11 +5,11 @@
 ## 引入
 
 ``` js
-import MpSlider from 'mp-weui/packages/slider'
+import iSlider from 'mp-lui/packages/slider'
 
 export default {
   components: {
-    MpSlider
+    iSlider
   }
 }
 ```

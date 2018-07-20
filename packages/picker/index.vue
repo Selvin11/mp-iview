@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'MpPicker',
+  name: 'iPicker',
   props: {
     value: [String, Array],
     rangeKey: String,
