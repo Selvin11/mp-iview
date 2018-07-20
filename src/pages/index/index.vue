@@ -26,9 +26,9 @@
         </div>
       </div>
     </div>
-    <div class="page__ft">
+    <!-- <div class="page__ft">
       <img src="/static/images/icon_footer.png" style="width: 84px; height: 19px;" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -64,6 +64,9 @@
           }, {
             url: 'uploader',
             name: '上传'
+          }, {
+            url: 'progress',
+            name: '进度条'
           }]
         }, {
           id: 'widget',
@@ -84,9 +87,6 @@
           }, {
             url: 'drawer',
             name: '抽屉'
-          }, {
-            url: 'notice_bar',
-            name: '通知栏'
           }, {
             url: 'footer',
             name: '底部'
@@ -111,9 +111,6 @@
           }, {
             url: 'panel',
             name: '面板'
-          }, {
-            url: 'progress',
-            name: '进度条'
           }]
         }, {
           id: 'feedback',
@@ -146,8 +143,8 @@
           name: '导航相关',
           open: false,
           pages: [{
-            url: 'navbar',
-            name: '顶部导航'
+            url: 'notice_bar',
+            name: '通知栏'
           }, {
             url: 'tabbar',
             name: '底部导航'
@@ -157,14 +154,6 @@
           }, {
             url: 'page',
             name: '分页'
-          }]
-        }, {
-          id: 'search',
-          name: '搜索相关',
-          open: false,
-          pages: [{
-            url: 'searchbar',
-            name: '搜索框'
           }]
         }]
       }
@@ -190,8 +179,104 @@
 </script>
 
 <style lang="less">
+  .weui-cells {
+    position: relative;
+    margin-top: 1.17647059em;
+    background-color: #FFFFFF;
+    line-height: 1.41176471;
+    font-size: 17px;
+  }
+  .weui-cells:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1rpx solid #D9D9D9;
+    color: #D9D9D9;
+  }
+  .weui-cells:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1rpx solid #D9D9D9;
+    color: #D9D9D9;
+  }
+
+  .weui-cell {
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+  }
+  .weui-cell:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1rpx solid #D9D9D9;
+    color: #D9D9D9;
+    left: 15px;
+  }
+  .weui-cell:first-child:before {
+    display: none;
+  }
+
+  .weui-cell__bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
+  }
+  .weui-cell__ft {
+    text-align: right;
+    color: #999999;
+  }
+  .weui-cell_access {
+    color: inherit;
+  }
+  .weui-cell__ft_in-access {
+    padding-right: 13px;
+    position: relative;
+  }
+  .weui-cell__ft_in-access:after {
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+            transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 2px;
+  }
+
   .weui-flex {
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
     align-items: center;
+  }
+
+  .weui-flex__item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
   }
 
   .weui-cells {

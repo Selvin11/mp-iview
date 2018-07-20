@@ -78,7 +78,6 @@ export default {
     handleInputChange (event) {
       const { detail = {} } = event
       const { value = '' } = detail
-      this.setData({ value })
       this.value = value
 
       this.$emit('change', event)

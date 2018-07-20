@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  name: 'MpUploaderBase',
+  name: 'iUploaderBase',
   props: {
     fileList: {
       type: Array,

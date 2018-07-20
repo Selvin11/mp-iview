@@ -1,74 +1,94 @@
 # Toast
 
-> 消息提示框
+> 顶部信息提示
 
 ## 引入
 
-``` js
-import Toast from 'mp-weui/packages/toast'
+```js
+import iToast from 'mp-lui/packages/toast'
+import iButton from 'mp-lui/packages/button'
+import {$Toast} from 'mp-lui/packages/base/index'
+
+export default {
+  components: {
+    iToast,
+    iButton
+  },
+  methods: {
+    handleText () {
+      $Toast(this, {
+        content: '这是文本提示'
+      })
+    },
+    handleSuccess () {
+      $Toast(this, {
+        content: '成功的提示',
+        type: 'success'
+      })
+    },
+    handleWarning () {
+      $Toast(this, {
+        content: '警告的提示',
+        type: 'warning'
+      })
+    },
+    handleError () {
+      $Toast(this, {
+        content: '错误的提示',
+        type: 'error'
+      })
+    },
+    handleLoading () {
+      $Toast(this, {
+        content: '加载中',
+        type: 'loading'
+      })
+    },
+    handleIcon () {
+      $Toast(this, {
+        content: '使用内置的图标',
+        icon: 'praise'
+      })
+    },
+    handleImage () {
+      $Toast(this, {
+        content: '使用自定义图片',
+        image: 'https://i.loli.net/2017/08/21/599a521472424.jpg'
+      })
+    },
+    handleMask () {
+      $Toast(this, {
+        content: '5秒后自动关闭',
+        icon: 'prompt',
+        duration: 0,
+        mask: false
+      })
+      setTimeout(() => {
+        $Toast.hide(this)
+      }, 5000)
+    }
+  }
+}
 ```
 
 ## 示例
 
-基础用法，可指定 `duration`
+```html
+<i-button type="ghost" @click="handleText">只显示文本</i-button>
+<i-button type="ghost" @click="handleSuccess">成功</i-button>
+<i-button type="ghost" @click="handleWarning">警告</i-button>
+<i-button type="ghost" @click="handleError">错误</i-button>
+<i-button type="ghost" @click="handleLoading">Loading</i-button>
+<i-button type="ghost" @click="handleIcon">使用图标</i-button>
+<i-button type="ghost" @click="handleImage">使用自定义图片</i-button>
+<i-button type="ghost" @click="handleMask">无遮罩层</i-button>
 
-``` js
-Toast('提示信息', [duration])
+<i-toast ref="toast" />
 ```
 
-传入一个对象
+## Props
 
-``` js
-Toast(options)
-```
+| 参数   |    说明    |  类型  | 可选值 | 默认值 |
+| ------ | :--------: | :----: | :----: | :----: |
+| iClass | 自定义类名 | string |   -    |   -    |
 
-`Toast` 提供了 `loading`、`success` 和 `close` 3个方法
-
-执行 `Toast.loading` 返回 `close` 方法，用于手动关闭 `loading` ，也可以调用 `Toast.close`
-
-``` js
-Toast.loading() // 默认显示“数据加载中”
-
-Toast.loading(message)
-```
-
-`Toast.success` 提示成功信息
-
-``` js
-Toast.success(message)
-```
-
-## Options
-
-### duration
-
-* Type: `number`
-* Default: `1500`
-
-提示延迟时间，单位毫秒。
-
-### icon
-
-* Type: `string`
-* Option: `success`、`loading`、`none`
-
-图标。
-
-### image
-
-* Type: `string`
-
-自定义图标的本地路径，`image` 的优先级高于 `icon` 。
-
-### mask
-
-* Type: `boolean`
-* Default: `true`
-
-是否显示透明蒙层，防止触摸穿透。
-
-### title
-
-* Type: `string`
-
-提示内容。

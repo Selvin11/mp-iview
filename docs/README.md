@@ -2,7 +2,7 @@
 home: true
 # heroImage: /hero.png
 actionText: 快速上手 →
-actionLink: /components/agree
+actionLink: /components/button
 footer: MIT Licensed | Copyright © 2018-present Selvin
 ---
 

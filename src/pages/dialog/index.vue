@@ -34,16 +34,20 @@
     <i-dialog title="删除确认" :visible="visible5" :actions="actions5" @click="handleClick5">
       <div>删除后无法恢复哦</div>
     </i-dialog>
+
+    <i-toast ref="toast" />
   </div>
 </template>
 
 <script>
 import iDialog from '../../../packages/dialog'
 import iButton from '../../../packages/button'
+import iToast from '../../../packages/toast'
 import {$Toast} from '../../../packages/base/index'
 export default {
   components: {
     iDialog,
+    iToast,
     iButton
   },
   data () {
@@ -111,12 +115,13 @@ export default {
     },
 
     handleClick3 (index) {
-      if (index === '0') {
-        $Toast({
+      console.log('index', index)
+      if (index === 0) {
+        $Toast(this, {
           content: '点击了现金支付'
         })
-      } else if (index === '1') {
-        $Toast({
+      } else if (index === 1) {
+        $Toast(this, {
           content: '点击了微信支付'
         })
       }
@@ -143,7 +148,7 @@ export default {
         action[1].loading = true
 
         this.actions5 = action
-        $Toast({
+        $Toast(this, {
           content: '删除成功！',
           type: 'success'
         })

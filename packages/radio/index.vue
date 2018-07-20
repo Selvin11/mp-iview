@@ -57,7 +57,7 @@ export default {
         }
       })
       current = this.lists.filter(list => list.checked)
-      this.$emit('radioChange', current)
+      this.$emit('change', current)
     }
   },
   computed: {

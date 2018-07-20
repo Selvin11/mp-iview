@@ -1,15 +1,15 @@
-# Radio
+# Checkbox
 
-> 单选框
+> 复选框
 
 ## 引入
 
 ```js
-import iRadio from 'mp-lui/packages/radio'
+import iCheckbox from 'mp-lui/packages/checkbox'
 
 export default {
   components: {
-    iRadio
+    iCheckbox
   },
   data () {
     return {

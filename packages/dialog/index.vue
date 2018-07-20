@@ -61,13 +61,15 @@
         type: String,
         default: ''
       },
+      // 按钮组，有此值时，不显示 ok 和 cancel 按钮
       actions: {
         type: Array,
         default: []
       },
+      // horizontal || vertical
       actionMode: {
         type: String,
-        default: ''
+        default: 'horizontal'
       },
       showOk: {
         type: Boolean,
@@ -87,13 +89,13 @@
       }
     },
     methods: {
-      handleClickItem(index) {
-        this.$emit('click', { index })
+      handleClickItem (index) {
+        this.$emit('click', index)
       },
-      handleClickOk() {
+      handleClickOk () {
         this.$emit('ok')
       },
-      hanldeClickCancel() {
+      handleClickCancel () {
         this.$emit('cancel')
       }
     }

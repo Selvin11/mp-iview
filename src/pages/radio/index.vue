@@ -5,7 +5,7 @@
       <div class="page__desc">单选框列表</div>
     </div>
     <div class="page__bd">
-      <i-radio @radioChange="handleFruitChange" :lists="fruit" :position="position" />
+      <i-radio @change="handleFruitChange" :lists="fruit" :position="position" />
 
       <i-button @click="handleClick" type="ghost">切换单选框位置</i-button>
     </div>

@@ -4,101 +4,79 @@
 
 ## 引入
 
-``` js
-import Dialog from 'mp-weui/packages/dialog'
+```js
+import iDialog from 'mp-lui/packages/dialog'
+
+export default {
+  components: {
+    iDialog
+  },
+  data () {
+    return {
+      visible2: false,
+      visible3: false,
+      actions3: [
+        {
+          name: '现金支付',
+          color: '#2d8cf0'
+        },
+        {
+          name: '微信支付',
+          color: '#19be6b'
+        },
+        {
+          name: '取消'
+        }
+      ],
+    }
+  },
+  methods: {
+    handleClose2 () {
+      this.visible2 = false
+    },
+
+    handleClick3 (index) {
+      if (index === 0) {
+        console.log('点击了现金支付')
+      } else if (index === 1) {
+        console.log('点击了微信支付')
+      }
+      this.visible3 = false
+    },
+  }
+}
 ```
 
 ## 示例
 
-传入一个对象
+```html
+<i-dialog :visible="visible2" @ok="handleClose2" @cancel="handleClose2">
+  <div>这是一个无标题的对话框</div>
+</i-dialog>
 
-``` js
-Dialog(options)
+<i-dialog title="支付" :visible="visible3" :actions="actions3" @click="handleClick3">
+  <div>请选择支付方式</div>
+</i-dialog>
 ```
 
-`Dialog` 提供了 `alert` 和 `confirm` 两个方法
+## Props
 
-`Dialog.alert` 使用方式
+| 参数       |                         说明                         |  类型   |        可选值         |   默认值   |
+| ---------- | :--------------------------------------------------: | :-----: | :-------------------: | :--------: |
+| visible    |                      对话框显示                      | boolean |           -           |   false    |
+| title      |                      对话框标题                      | string  |           -           |     -      |
+| actions    | 对话框中的按钮组，有此值时，不显示 ok 和 cancel 按钮 |  array  |           -           |     -      |
+| actionMode |                    按钮组排列方式                    | string  | horizontal ，vertical | horizontal |
+| showOk     |                       确定显示                       | boolean |           -           |    true    |
+| showCancel |                       取消显示                       | boolean |           -           |    true    |
+| okText     |                       确定文字                       | string  |           -           |    确定    |
+| cancelText |                       取消文字                       | string  |           -           |    取消    |
 
-``` js
-Dialog.alert(content)
+## Events
 
-Dialog.alert(content, title)
+| 事件名称 |          说明          | 回调参数 |
+| :------- | :--------------------: | :------: |
+| click    | 点击每一个按钮项时触发 |    -     |
+| ok       |     点击确定时触发     |    -     |
+| cancel   |     点击取消时触发     |    -     |
 
-Dialog.alert(content, options)
-
-Dialog.alert(content, title, options)
-```
-
-`Dialog.confirm` 使用方式
-
-``` js
-Dialog.confirm(content)
-
-Dialog.confirm(content, title)
-
-Dialog.confirm(content, options)
-
-Dialog.confirm(content, title, options)
-```
-
-## Options
-
-### cancelColor
-
-* Type: `string`
-* Default: `#000`
-
-取消按钮文字颜色。
-
-### cancelText
-
-* Type: `string`
-* Default: `取消`
-
-取消按钮文字，最多 4 个字符。
-
-### confirmColor
-
-* Type: `string`
-* Default: `#3cc51f`
-
-确定按钮文字颜色。
-
-### confirmText
-
-* Type: `string`
-* Default: `确定`
-
-确定按钮文字，最多 4 个字符。
-
-### content
-
-* Type: `string`
-
-提示内容。
-
-### onCancel
-
-* Type: `function(e)`
-
-点击取消回调。
-
-### onOk
-
-* Type: `function(e)`
-
-点击确定回调。
-
-### showCancel
-
-* Type: `Boolean`
-* Default: `true`
-
-是否显示取消按钮。
-
-### title
-
-* Type: `string`
-
-提示标题。

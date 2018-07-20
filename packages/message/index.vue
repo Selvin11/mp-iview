@@ -7,30 +7,30 @@
 </template>
 
 <script>
-import { setData } from "../utils";
+import { setData } from '../utils'
 
-const default_data = {
+const defaultData = {
   visible: false,
-  content: "",
+  content: '',
   duration: 2,
-  type: "default" // default || success || warning || error
-};
+  type: 'default' // default || success || warning || error
+}
 
-let timmer = null;
+let timmer = null
 
 export default {
-  name: "iMessage",
+  name: 'iMessage',
   props: {
     // 附加类名，控制样式
     iClass: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data () {
     return {
-      ...default_data
-    };
+      ...defaultData
+    }
   },
   computed: {
     iMessageTypeClass: function () {
@@ -38,11 +38,11 @@ export default {
     }
   },
   methods: {
-    handleShow(options) {
-      const { type = "default", duration = 2 } = options
+    handleShow (options) {
+      // const { type = 'default', duration = 2 } = options
 
       setData(this, {
-        ...default_data,
+        ...defaultData,
         ...options,
         visible: true
       })
@@ -58,13 +58,13 @@ export default {
       }
     },
 
-    handleHide() {
+    handleHide () {
       setData(this, {
-        ...default_data
+        ...defaultData
       })
     }
   }
-};
+}
 </script>
 
 <style lang="less">

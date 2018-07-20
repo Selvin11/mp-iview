@@ -5,11 +5,11 @@
 ## 引入
 
 ``` js
-import MpUploaderBase from 'mp-weui/packages/uploader-base'
+import iUploader from 'mp-lui/packages/uploader-base'
 
 export default {
   components: {
-    MpUploaderBase
+    iUploader
   }
 }
 ```
@@ -17,7 +17,7 @@ export default {
 ## 示例
 
 ``` html
-<mp-uploader-base
+<i-uploader
   @onSelect="onSelect"
   :file-list="files"
   title="文件上传"

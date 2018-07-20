@@ -4,59 +4,59 @@
 
 ## 引入
 
-``` js
-import MpGrid from 'mp-weui/packages/grid'
+```js
+import iGridGroup from 'mp-lui/packages/grid-group'
+import iGrid from 'mp-lui/packages/grid'
 
 export default {
   components: {
-    MpGrid
+    iGrid,
+    iGridGroup
+  },
+  data () {
+    return {
+      grids: [{
+        label: 1,
+        type: 'activity'
+      }, {
+        label: 2,
+        type: 'activity'
+      }, {
+        label: 3,
+        type: 'activity'
+      }, {
+        label: 4,
+        type: 'activity'
+      }]
+    }
   }
 }
 ```
 
-::: tip 提示
-必须与 `GridGroup` 配合使用。
-:::
-
 ## 示例
 
-``` html
-<mp-grid-group>
-  <mp-grid
-    icon-src="/static/images/icon_tabbar.png"
-    label="Grid"
-  />
-</mp-grid-group>
+```html
+<i-grid-group>
+  <i-grid type="activity" :size="24" label="1" />
+  <i-grid type="activity" :size="24" label="2" />
+  <i-grid type="activity" :size="24" label="3" />
+  <i-grid type="activity" :size="24" label="4" />
+</i-grid-group>
 ```
-
-::: warning 特别说明
-由于 mpvue [暂不支持组件嵌套](https://trello.com/c/UKF5tFv9/34-%E6%94%AF%E6%8C%81%E6%9B%B4%E5%A4%8D%E6%9D%82%E7%9A%84-slot)，所以上述方式暂不适用，具体使用请参考[示例代码](https://github.com/youngluo/mp-weui/blob/master/src/pages/grid/index.vue)。
-:::
 
 ## Props
 
-### href
+| 参数（GridGroup） |    说明    |  类型  | 默认值 |
+| ----------------- | :--------: | :----: | :----: |
+| iClass            | 自定义类名 | string |   -    |
 
-* Type: `string`
 
-跳转链接。
 
-### iconSrc
+| 参数（Grid） |    说明    |  类型  | 默认值 |
+| ------------ | :--------: | :----: | :----: |
+| iClass       | 自定义类名 | string |   -    |
+| size         | icon的大小 | number |   -    |
+| color        | icon的颜色 | string |   -    |
+| type         | icon的类型 | string |   -    |
+| label        |  标题文字  | string |   -    |
 
-* Type: `string`
-
-图标链接。
-
-### label
-
-* Type: `string`
-
-说明文字。
-
-## Events
-
-### click
-
-* Parameter: `$event`
-
-点击事件。
