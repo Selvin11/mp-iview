@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "description": "A Mpvue project",
   "author": "Selvin11 <528370630@qq.com>",
-  "private": true,
   "main": "packages/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -11,6 +11,11 @@ _config.yml
 .dockerignore
 .editorconfig
 .eslintignore
+.babelrc
+.postcssrc.js
+karma.conf.js
+project.config.json
+yarn.lock
 .eslintrc.js
 .gitignore
 .gitlab-ci.yml
