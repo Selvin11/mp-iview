@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxf007725439676084",
 	"projectname": "mp-lui",
 	"condition": {
 		"search": {

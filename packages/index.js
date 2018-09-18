@@ -1,4 +1,5 @@
 import iActionsheet from './actionsheet'
+import iAddress from './address'
 import iAlert from './alert'
 import iBadge from './badge'
 import iButton from './button'
@@ -32,6 +33,7 @@ import iUploader from './uploader-base'
 
 const components = [
   iActionsheet,
+  iAddress,
   iAlert,
   iBadge,
   iButton,
@@ -83,6 +85,7 @@ export {
   install,
   version,
   iActionsheet,
+  iAddress,
   iAlert,
   iBadge,
   iButton,

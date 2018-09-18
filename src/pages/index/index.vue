@@ -76,6 +76,9 @@
             url: 'avatar',
             name: '头像'
           }, {
+            url: 'address',
+            name: '地址'
+          }, {
             url: 'badge',
             name: '徽章'
           }, {
