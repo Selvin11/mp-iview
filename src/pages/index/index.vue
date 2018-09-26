@@ -47,6 +47,9 @@
             url: 'input_number',
             name: '加减输入框'
           }, {
+            url: 'keyboard',
+            name: '键盘'
+          }, {
             url: 'button',
             name: '按钮'
           }, {

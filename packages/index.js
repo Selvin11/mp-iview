@@ -12,6 +12,7 @@ import iCheckbox from './checkbox'
 import iDrawer from './drawer'
 import iInput from './input'
 import iInputNumber from './input-number'
+import iKeyboard from './keyboard'
 import iPicker from './picker'
 import Dialog from './dialog'
 import Toast from './toast'
@@ -46,6 +47,7 @@ const components = [
   iDrawer,
   iInput,
   iInputNumber,
+  iKeyboard,
   iPicker,
   iGrid,
   iGridGroup,
@@ -98,6 +100,7 @@ export {
   iDrawer,
   iInput,
   iInputNumber,
+  iKeyboard,
   iPicker,
   iGrid,
   iGridGroup,

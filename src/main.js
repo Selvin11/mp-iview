@@ -39,6 +39,7 @@ export default {
       'pages/drawer/main', // drawer
       'pages/input/main',
       'pages/input_number/main',
+      'pages/keyboard/main',
       'pages/notice_bar/main',
       'pages/spin/main',
       'pages/steps/main',
