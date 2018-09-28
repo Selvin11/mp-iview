@@ -1,8 +1,8 @@
 <template>
   <div class="address">
     <i-cell :title="title" :value="cellValue" is-link @click="chooseAddress"></i-cell>
-    <div class="dialog-mask" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" @click="addressCancel"></div>
-    <div class="address-picker-wrap" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" :animation="animationAddressMenu">
+    <div class="picker-dialog-mask" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" @click="addressCancel"></div>
+    <div class="picker-wrap" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" :animation="animationAddressMenu">
       <div class="operate-bar">
         <span class="cancel" @click="addressCancel">取消</span>
         <span class="confirm" @click="addressConfrim">确定</span>
@@ -63,7 +63,7 @@ export default {
       value: [],
       showAddressPicker: false,
       animationAddressMenu: '', // picker动画
-      cellValue: '', // 输入框重的地址信息
+      cellValue: '', // cell中的显示文字
       animation: '', // 动画对象
       provinceOptions: [],
       cityOptions: [],
@@ -183,6 +183,7 @@ export default {
 }
 </script>
 <style lang="less">
+@import '../styles/common/picker.less';
 .address {
   .i-cell-ft view {
     width: 450rpx;
@@ -190,41 +191,10 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-}
-.address-picker-wrap {
-  position: fixed;
-  width: 100%;
-  height: 80vh;
-  z-index:12;
-  background-color: #fff;
-  .operate-bar {
-    margin-top:10rpx;
-    line-height: 70rpx;
-    border-bottom: 1rpx solid #eee;
-    .cancel {
-      margin-left: 30rpx;
-      color: #888;
-    }
-    .confirm {
-      float: right;
-      margin-right: 30rpx;
-      color: #44B549;
+  .picker-wrap {
+    .district-col {
+      padding-right: 30rpx;
     }
   }
-  .province-col {
-    padding-left: 30rpx;
-  }
-  .district-col {
-    padding-right: 30rpx;
-  }
-}
-.dialog-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 8;
-  background: rgba(0, 0, 0, 0.3);
 }
 </style>

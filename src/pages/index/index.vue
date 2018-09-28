@@ -50,6 +50,9 @@
             url: 'keyboard',
             name: '键盘'
           }, {
+            url: 'selector',
+            name: '单列选择器'
+          }, {
             url: 'button',
             name: '按钮'
           }, {
