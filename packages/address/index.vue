@@ -1,34 +1,35 @@
 <template>
   <div class="address">
     <i-cell :title="title" :value="cellValue" is-link @click="chooseAddress"></i-cell>
-    <div class="picker-dialog-mask" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" @click="addressCancel"></div>
-    <div class="picker-wrap" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" :animation="animationAddressMenu">
-      <div class="operate-bar">
-        <span class="cancel" @click="addressCancel">取消</span>
-        <span class="confirm" @click="addressConfrim">确定</span>
+    <div class="picker-dialog-mask" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" @click="addressCancel">
+      <div class="picker-wrap" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" :animation="animationAddressMenu">
+        <div class="operate-bar">
+          <span class="cancel" @click="addressCancel">取消</span>
+          <span class="confirm" @click="addressConfrim">确定</span>
+        </div>
+        <picker-view
+          class="picker-view"
+          indicator-class="picker-view-column"
+          :value="value"
+          @change="addressChange"
+        >
+          <picker-view-column>
+            <div v-for="province in provinceOptions" :key="province.code" class="province-col">
+              {{ province.name }}
+            </div>
+          </picker-view-column>
+          <picker-view-column>
+            <div v-for="city in cityOptions" :key="city.code">
+              {{ city.name }}
+            </div>
+          </picker-view-column>
+          <picker-view-column v-if="!hideDistrict">
+            <div v-for="district in districtOptions" :key="district.code" class="district-col">
+              {{ district.name }}
+            </div>
+          </picker-view-column>
+        </picker-view>
       </div>
-      <picker-view
-        indicator-style="height: 50px;" 
-        style="width: 100%; height: 60vh;line-height: 50px;"
-        :value="value"
-        @change="addressChange"
-      >
-        <picker-view-column>
-          <div v-for="province in provinceOptions" :key="province.code" class="province-col">
-            {{ province.name }}
-          </div>
-        </picker-view-column>
-        <picker-view-column>
-          <div v-for="city in cityOptions" :key="city.code">
-            {{ city.name }}
-          </div>
-        </picker-view-column>
-        <picker-view-column v-if="!hideDistrict">
-          <div v-for="district in districtOptions" :key="district.code" class="district-col">
-            {{ district.name }}
-          </div>
-        </picker-view-column>
-      </picker-view>
     </div>
   </div>
 </template>
@@ -104,7 +105,7 @@ export default {
     // 执行动画
     startAddressAnimation (isShow) {
       if (isShow) {
-        this.animation.translateY(30 + 'vh').step()
+        this.animation.translateY(40 + 'vh').step()
       } else {
         this.animation.translateY(100 + 'vh').step()
       }
@@ -185,11 +186,14 @@ export default {
 <style lang="less">
 @import '../styles/common/picker.less';
 .address {
-  .i-cell-ft view {
-    width: 450rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .picker-view {
+    width: 100%; 
+    height: 60vh;
+    line-height: 80rpx;
+    text-align: center;
+  }
+  .picker-view-column {
+    height: 80rpx;
   }
   .picker-wrap {
     .district-col {

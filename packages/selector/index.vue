@@ -14,24 +14,25 @@
         </div>
       </div>
     </div>
-    <div class="picker-dialog-mask" :style="{visibility: showSelectorPicker ? 'visible':'hidden'}" @click="selectorCancel"></div>
-    <div class="picker-wrap" :style="{visibility: showSelectorPicker ? 'visible':'hidden'}" :animation="animationSelectorMenu">
-      <div class="operate-bar">
-        <span class="cancel" @click="selectorCancel">取消</span>
-        <span class="confirm" @click="selectorConfrim">确定</span>
+    <div class="picker-dialog-mask" :style="{visibility: showSelectorPicker ? 'visible':'hidden'}" @click="selectorCancel">
+      <div class="picker-wrap" :style="{visibility: showSelectorPicker ? 'visible':'hidden'}" :animation="animationSelectorMenu">
+        <div class="operate-bar">
+          <span class="cancel" @click="selectorCancel">取消</span>
+          <span class="confirm" @click="selectorConfrim">确定</span>
+        </div>
+        <picker-view
+          class="picker-view"
+          indicator-class="picker-view-column"
+          :value="pickerViewValue"
+          @change="selectorChange"
+        >
+          <picker-view-column>
+            <div v-for="(selector, index) in selectorData" :key="index" class="selector-col">
+              {{ selectorKey ? selector[selectorKey] : selector }}
+            </div>
+          </picker-view-column>
+        </picker-view>
       </div>
-      <picker-view
-        class="picker-view"
-        indicator-class="picker-view-column"
-        :value="pickerViewValue"
-        @change="selectorChange"
-      >
-        <picker-view-column>
-          <div v-for="(selector, index) in selectorData" :key="index" class="selector-col">
-            {{ selectorKey ? selector[selectorKey] : selector }}
-          </div>
-        </picker-view-column>
-      </picker-view>
     </div>
   </div>
 </template>
