@@ -2,8 +2,9 @@
   <div>
     <i-address
       title="车辆归属地"
+      placeholder="请选择"
       @on-change="addressChange" 
-      :address-data="addressData"
+      :value="addressValue"
     >
     </i-address>
   </div>
@@ -17,7 +18,7 @@ export default {
   },
   data () {
     return {
-      addressData: {
+      addressValue: {
         province: {
           code: '130000',
           name: '河北省'

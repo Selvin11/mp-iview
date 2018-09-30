@@ -1,5 +1,5 @@
 <template>
-  <div class="selector">
+  <div class="picker-cell selector">
     <div 
       @click="chooseSelector" 
       class="i-cell i-cell-access"
@@ -46,7 +46,7 @@ export default {
   },
   props: {
     title: {
-      // 地址选择器名称
+      // 选择器名称
       type: String,
       default: ''
     },
@@ -54,6 +54,7 @@ export default {
       type: Array,
       default: []
     },
+    value: [String, Number, Object],
     placeholder: {
       type: String,
       default: ''
@@ -80,7 +81,10 @@ export default {
     })
     this.animation.translateY(100 + 'vh').step()
     this.animationSelectorMenu = this.animation.export()
+
     let selectorKey = this.selectorKey
+
+    // 填充选择数组的第一项
     if (selectorKey) {
       let keyArr = Object.keys(this.selectorData[0])
       let valueKey = keyArr.filter(key => key !== selectorKey)
@@ -91,12 +95,25 @@ export default {
     } else {
       this.selectorData.unshift(this.placeholder || '请选择')
     }
+
+    // 设置默认值
+    if (this.value) {
+      let index = -1
+      if (selectorKey) {
+        index = this.selectorData.findIndex(selector => selector[selectorKey] === this.value[[selectorKey]])
+        this.cellValue = this.selectorData[index][selectorKey]
+      } else {
+        index = this.selectorData.findIndex(selector => selector === this.value)
+        this.cellValue = this.selectorData[index]
+      }
+      this.pickerViewValue = [index]
+    }
   },
   methods: {
     // 执行动画
     startAddressAnimation (isShow) {
       if (isShow) {
-        this.animation.translateY(40 + 'vh').step()
+        this.animation.translateY(50 + 'vh').step()
       } else {
         this.animation.translateY(100 + 'vh').step()
       }
@@ -123,20 +140,5 @@ export default {
 </script>
 <style lang="less">
 @import '../styles/common/picker.less';
-.selector {
-  .placeholder {
-    color: #c9c9c9;
-  }
-  .picker-view {
-    width: 100%; 
-    height: 40vh;
-    line-height: 80rpx;
-    text-align: center;
-  }
-  .picker-view-column {
-    height: 80rpx;
-  }
-}
-
 
 </style>

@@ -1,6 +1,23 @@
 <template>
-  <div class="address">
-    <i-cell :title="title" :value="cellValue" is-link @click="chooseAddress"></i-cell>
+  <div class="picker-cell address">
+    <!-- 这样placeholder无法正常渲染 -->
+    <!-- <i-cell :title="title" :value="cellValue" is-link @click="chooseAddress">
+      <div class="placeholder">{{ placeholder }}</div>
+    </i-cell> -->
+    <div 
+      @click="chooseAddress" 
+      class="i-cell i-cell-access"
+    >
+      <div class="i-cell-bd">
+          <div class="i-cell-text">{{ title }}</div>
+      </div>
+      <div class="i-cell-ft">
+        <div v-if="placeholder && !cellValue" class="placeholder">{{ placeholder }}</div>
+        <div v-else>
+          {{ cellValue }}
+        </div>
+      </div>
+    </div>
     <div class="picker-dialog-mask" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" @click="addressCancel">
       <div class="picker-wrap" :style="{visibility: showAddressPicker ? 'visible':'hidden'}" :animation="animationAddressMenu">
         <div class="operate-bar">
@@ -10,7 +27,7 @@
         <picker-view
           class="picker-view"
           indicator-class="picker-view-column"
-          :value="value"
+          :value="pickerViewValue"
           @change="addressChange"
         >
           <picker-view-column>
@@ -49,9 +66,13 @@ export default {
       type: String,
       default: ''
     },
-    addressData: {
+    value: {
       type: Object,
       default: {}
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     hideDistrict: {
       // 是否隐藏区域
@@ -61,7 +82,7 @@ export default {
   },
   data () {
     return {
-      value: [],
+      pickerViewValue: [],
       showAddressPicker: false,
       animationAddressMenu: '', // picker动画
       cellValue: '', // cell中的显示文字
@@ -79,9 +100,9 @@ export default {
     })
     this.animation.translateY(100 + 'vh').step()
     this.animationAddressMenu = this.animation.export()
-    let addressData = this.addressData
+    let addressData = this.value
     this.getProvince()
-    if (!addressData) {
+    if (!addressData.province) {
       // 默认显示第一个
       this.getCity(this.provinceOptions[0].code)
       this.getArea(this.cityOptions[0].code)
@@ -98,14 +119,14 @@ export default {
       } else {
         this.cellValue = `${addressData.province.name} ${addressData.city.name}`
       }
-      this.value = [provinceIndex, cityIndex, districtIndex]
+      this.pickerViewValue = [provinceIndex, cityIndex, districtIndex]
     }
   },
   methods: {
     // 执行动画
     startAddressAnimation (isShow) {
       if (isShow) {
-        this.animation.translateY(40 + 'vh').step()
+        this.animation.translateY(50 + 'vh').step()
       } else {
         this.animation.translateY(100 + 'vh').step()
       }
@@ -117,32 +138,32 @@ export default {
     },
     addressChange (e) {
       let addressIndexArr = e.target.value
-      if (this.value[0] !== addressIndexArr[0]) {
+      if (this.pickerViewValue[0] !== addressIndexArr[0]) {
         // 省份有变动
         // 根据省获取城市
         this.getCity(this.provinceOptions[addressIndexArr[0]].code)
         // 根据城市获取区域
         this.getArea(this.cityOptions[0].code)
-        this.value = [addressIndexArr[0], 0, 0]
+        this.pickerViewValue = [addressIndexArr[0], 0, 0]
       } else {
         // 省份无变动
         // 根据城市获取区域
         this.getArea(this.cityOptions[addressIndexArr[1]].code)
-        this.value = addressIndexArr
+        this.pickerViewValue = addressIndexArr
       }
       // 出发事件，传递参数
       let changeData = {}
       if (!this.hideDistrict) {
         changeData = {
-          province: this.provinceOptions[this.value[0]],
-          city: this.cityOptions[this.value[1]],
-          district: this.districtOptions[this.value[2]]
+          province: this.provinceOptions[this.pickerViewValue[0]],
+          city: this.cityOptions[this.pickerViewValue[1]],
+          district: this.districtOptions[this.pickerViewValue[2]]
         }
         this.cellValue = `${changeData.province.name} ${changeData.city.name} ${changeData.district.name}`
       } else {
         changeData = {
-          province: this.provinceOptions[this.value[0]],
-          city: this.cityOptions[this.value[1]]
+          province: this.provinceOptions[this.pickerViewValue[0]],
+          city: this.cityOptions[this.pickerViewValue[1]]
         }
         this.cellValue = `${changeData.province.name} ${changeData.city.name}`
       }
@@ -178,6 +199,24 @@ export default {
       this.startAddressAnimation(false)
     },
     addressConfrim () {
+      if (this.pickerViewValue.length === 0) {
+        let changeData = {}
+        if (!this.hideDistrict) {
+          changeData = {
+            province: this.provinceOptions[0],
+            city: this.cityOptions[0],
+            district: this.districtOptions[0]
+          }
+          this.cellValue = `${changeData.province.name} ${changeData.city.name} ${changeData.district.name}`
+        } else {
+          changeData = {
+            province: this.provinceOptions[0],
+            city: this.cityOptions[0]
+          }
+          this.cellValue = `${changeData.province.name} ${changeData.city.name}`
+        }
+        this.$emit('on-change', changeData)
+      }
       this.startAddressAnimation(false)
     }
   }
@@ -186,15 +225,6 @@ export default {
 <style lang="less">
 @import '../styles/common/picker.less';
 .address {
-  .picker-view {
-    width: 100%; 
-    height: 60vh;
-    line-height: 80rpx;
-    text-align: center;
-  }
-  .picker-view-column {
-    height: 80rpx;
-  }
   .picker-wrap {
     .district-col {
       padding-right: 30rpx;
