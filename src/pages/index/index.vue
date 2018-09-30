@@ -53,6 +53,12 @@
             url: 'selector',
             name: '单列选择器'
           }, {
+            url: 'date',
+            name: '小程序原生日期选择'
+          }, {
+            url: 'datetime',
+            name: '全格式日期选择'
+          }, {
             url: 'button',
             name: '按钮'
           }, {

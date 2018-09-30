@@ -17,6 +17,8 @@ export default {
       'pages/button/main',
       'pages/address/main',
       'pages/selector/main',
+      'pages/date/main', // picker mode: date
+      'pages/datetime/main', // picker-view + picker-view-column
       'pages/list/main',
       'pages/switch/main',
       'pages/checkbox/main',
