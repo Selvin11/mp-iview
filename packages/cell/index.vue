@@ -1,7 +1,7 @@
 <template>
   <div 
     @click="handleTap" 
-    :class="['i-cell', {'i-cell-last' : isLastCell }, {'i-cell-access': isLink }]"
+    :class="['i-cell', {'i-cell-last' : isLastCell }, {'i-cell-access': isLink }, iClass]"
   >
     <div class="i-cell-icon">
       <div
@@ -18,7 +18,7 @@
     </div>
     <div @click="navigateTo" class="i-cell-ft">
       <div v-if="value">{{ value }}</div>
-      <div v-else>
+      <div v-else class="i-cell-ft-slot">
         <slot></slot>
       </div>
     </div>
@@ -29,6 +29,7 @@
 export default {
   name: 'iCell',
   props: {
+    iClass: String,
     content: String,
     icon: {
       type: String,

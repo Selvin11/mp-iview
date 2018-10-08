@@ -47,10 +47,12 @@
 <script>
   import iButton from '../button'
   import iIcon from '../icon'
+  import iGrid from '../grid'
   export default {
     components: {
       iButton,
-      iIcon
+      iIcon,
+      iGrid
     },
     props: {
       visible: {
