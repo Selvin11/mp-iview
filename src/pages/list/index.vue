@@ -46,7 +46,7 @@
             <i-cell title="只有 footer 点击有效" is-link url="/pages/index/main" :onlyTapFooter="true"></i-cell>
             <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
             <i-cell title="表单">
-                <input slot="footer" type="digit" placeholder="带小数点的数字键盘"/>
+                <input type="digit" placeholder="带小数点的数字键盘"/>
             </i-cell>
         </i-cell-group>
     </i-panel>

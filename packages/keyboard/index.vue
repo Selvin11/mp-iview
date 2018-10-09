@@ -1,50 +1,51 @@
 <template>
   <div>
-    <div class="dialog-mask" :style="{visibility: isShow ? 'visible':'hidden'}" @click="keyboardCancel"></div>
-    <div class="keyboard-wrap" :style="{visibility: isShow ? 'visible':'hidden'}" :animation="animationKeyboard">
-      <div class="keyboard-content" v-if="type === 'provinces' && isShow">
-        <ul
-          class="keyboard-list"
-          v-for="(i, index) in provincesData"
-          :key="index">
-          <li
-            v-for="(item, itemIndex) in i"
-            :key="itemIndex"
-            @click="clickKey(item.value, 'provinces')"
-            @touchstart="handleTouchStart(item.value)"
-            @touchend="handleTouchEnd(item.value)"
-            :class="{'touch-start': currentTouchStart === item.value}"
-          >
-            {{ item.value}}
-          </li>
-        </ul>
-      </div>
+    <div class="dialog-mask" :style="{visibility: isShow ? 'visible':'hidden'}" @click="keyboardCancel">
+      <div class="keyboard-wrap" :style="{visibility: isShow ? 'visible':'hidden'}" :animation="animationKeyboard">
+        <div class="keyboard-content" v-if="type === 'provinces' && isShow">
+          <ul
+            class="keyboard-list"
+            v-for="(i, index) in provincesData"
+            :key="index">
+            <li
+              v-for="(item, itemIndex) in i"
+              :key="itemIndex"
+              @click="clickKey(item.value, 'provinces')"
+              @touchstart="handleTouchStart(item.value)"
+              @touchend="handleTouchEnd(item.value)"
+              :class="{'touch-start': currentTouchStart === item.value}"
+            >
+              {{ item.value}}
+            </li>
+          </ul>
+        </div>
 
-      <div class="keyboard-content" v-if="type === 'alphanumeric' && isShow">
-        <ul
-          class="keyboard-list"
-          v-for="(i, index) in alphanumeric"
-          :key="index">
-          <li
-            v-for="(item, itemIndex) in i"
-            :key="itemIndex"
-            @click="clickKey(item, 'alphanumeric')"
-            :class="{
-              'delete': item === 'delete' ,
-              'touch-start': currentTouchStart === item,
-              'end': item === 'end'}"
-            @touchstart="handleTouchStart(item)"
-            @touchend="handleTouchEnd(item)"
-          >
-            <span v-if="item === 'delete'"></span>
-            <span v-else-if="item === 'end'">完成</span>
-            <span v-else>{{ item }}</span>
-            <img
-              class="delete-icon"
-              src="./key_delete_icon.png"
-              v-if="item === 'delete'">
-          </li>
-        </ul>
+        <div class="keyboard-content" v-if="type === 'alphanumeric' && isShow">
+          <ul
+            class="keyboard-list"
+            v-for="(i, index) in alphanumeric"
+            :key="index">
+            <li
+              v-for="(item, itemIndex) in i"
+              :key="itemIndex"
+              @click="clickKey(item, 'alphanumeric')"
+              :class="{
+                'delete': item === 'delete' ,
+                'touch-start': currentTouchStart === item,
+                'end': item === 'end'}"
+              @touchstart="handleTouchStart(item)"
+              @touchend="handleTouchEnd(item)"
+            >
+              <span v-if="item === 'delete'"></span>
+              <span v-else-if="item === 'end'">完成</span>
+              <span v-else>{{ item }}</span>
+              <img
+                class="delete-icon"
+                src="./key_delete_icon.png"
+                v-if="item === 'delete'">
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -79,7 +80,7 @@
       },
       isShow (newValue, oldValue) {
         if (newValue) {
-          this.animation.translateY(45 + 'vh').step()
+          this.animation.translateY(62 + 'vh').step()
         } else {
           this.animation.translateY(100 + 'vh').step()
         }

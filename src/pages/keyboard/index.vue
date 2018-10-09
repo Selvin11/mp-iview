@@ -2,14 +2,10 @@
   <div>
     <i-cell-group>
       <i-cell title="省份键盘">
-        <div slot="footer">
-          <i-switch :value="test.showProvinces" @change="testShowProvinces"></i-switch>
-        </div>
+        <i-switch :value="test.showProvinces" @change="testShowProvinces"></i-switch>
       </i-cell>
       <i-cell title="字母数字键盘">
-        <div slot="footer">
-          <i-switch :value="test.showAlphanumeric" @change="testShowAlphanumeric"></i-switch>
-        </div>
+        <i-switch :value="test.showAlphanumeric" @change="testShowAlphanumeric"></i-switch>
       </i-cell>
     </i-cell-group>
 
