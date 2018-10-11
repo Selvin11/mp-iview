@@ -2,7 +2,7 @@
   <div>
     <div class="dialog-mask" :style="{visibility: isShow ? 'visible':'hidden'}" @click="keyboardCancel">
       <div class="keyboard-wrap" :style="{visibility: isShow ? 'visible':'hidden'}" :animation="animationKeyboard">
-        <div class="keyboard-content" v-if="type === 'provinces' && isShow">
+        <div class="keyboard-content" v-if="type === 'provinces' && isShow" @click.stop>
           <ul
             class="keyboard-list"
             v-for="(i, index) in provincesData"
@@ -10,7 +10,7 @@
             <li
               v-for="(item, itemIndex) in i"
               :key="itemIndex"
-              @click="clickKey(item.value, 'provinces')"
+              @click.stop="clickKey(item.value, 'provinces')"
               @touchstart="handleTouchStart(item.value)"
               @touchend="handleTouchEnd(item.value)"
               :class="{'touch-start': currentTouchStart === item.value}"
@@ -20,7 +20,7 @@
           </ul>
         </div>
 
-        <div class="keyboard-content" v-if="type === 'alphanumeric' && isShow">
+        <div class="keyboard-content" v-if="type === 'alphanumeric' && isShow" @click.stop>
           <ul
             class="keyboard-list"
             v-for="(i, index) in alphanumeric"
@@ -28,7 +28,7 @@
             <li
               v-for="(item, itemIndex) in i"
               :key="itemIndex"
-              @click="clickKey(item, 'alphanumeric')"
+              @click.stop="clickKey(item, 'alphanumeric')"
               :class="{
                 'delete': item === 'delete' ,
                 'touch-start': currentTouchStart === item,
