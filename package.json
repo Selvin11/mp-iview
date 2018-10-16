@@ -1,6 +1,6 @@
 {
   "name": "mp-lui",
-  "version": "1.0.8-rc.0",
+  "version": "1.0.8-rc.1",
   "description": "A Mpvue project",
   "author": "Selvin11 <528370630@qq.com>",
   "main": "packages/index.js",
