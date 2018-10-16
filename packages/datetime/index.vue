@@ -84,7 +84,7 @@ export default {
     },
     minYear: {
       type: Number,
-      default: 2018
+      default: 2000
     },
     maxYear: {
       type: Number,

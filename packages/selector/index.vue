@@ -28,7 +28,7 @@
         >
           <picker-view-column>
             <div v-for="(selector, index) in selectorData" :key="index" class="selector-col">
-              {{ selectorKey ? selector[selectorKey] : selector }}
+              {{ selector.value || selector }}
             </div>
           </picker-view-column>
         </picker-view>
@@ -52,14 +52,10 @@ export default {
     },
     selectorData: {
       type: Array,
-      default: []
+      default: [] // {key: '', value: ''}
     },
-    value: [String, Number, Object],
+    value: [String, Number, Boolean],
     placeholder: {
-      type: String,
-      default: ''
-    },
-    selectorKey: {
       type: String,
       default: ''
     }
@@ -82,31 +78,39 @@ export default {
     this.animation.translateY(100 + 'vh').step()
     this.animationSelectorMenu = this.animation.export()
 
-    let selectorKey = this.selectorKey
+    let isOptionObject = typeof this.selectorData[0] === 'object'
 
     // 填充选择数组的第一项
-    if (selectorKey) {
-      let keyArr = Object.keys(this.selectorData[0])
-      let valueKey = keyArr.filter(key => key !== selectorKey)
+    if (isOptionObject) {
       this.selectorData.unshift({
-        [selectorKey]: this.placeholder,
-        [valueKey]: 0
+        key: -1,
+        value: this.placeholder || '请选择'
       })
     } else {
       this.selectorData.unshift(this.placeholder || '请选择')
     }
 
     // 设置默认值
-    if (this.value) {
-      let index = -1
-      if (selectorKey) {
-        index = this.selectorData.findIndex(selector => selector[selectorKey] === this.value[[selectorKey]])
-        this.cellValue = this.selectorData[index][selectorKey]
+    if (this.value !== '') {
+      let index = 0
+
+      if (isOptionObject) {
+        this.selectorData.forEach((selector, selectorIndex) => {
+          if (selector.key == this.value) {
+            index = selectorIndex
+            this.cellValue = this.selectorData[index].value
+            this.pickerViewValue = [index]
+          }
+        })
       } else {
-        index = this.selectorData.findIndex(selector => selector === this.value)
-        this.cellValue = this.selectorData[index]
+        this.selectorData.forEach((selector, selectorIndex) => {
+          if (selector == this.value) {
+            index = selectorIndex
+            this.cellValue = this.selectorData[index]
+            this.pickerViewValue = [index]
+          }
+        })
       }
-      this.pickerViewValue = [index]
     }
   },
   methods: {
@@ -126,7 +130,7 @@ export default {
     selectorChange (e) {
       let selectorValue = this.selectorData[e.target.value[0]] || '' // 选中的数据
       this.pickerViewValue = e.target.value // 选中的索引
-      this.cellValue = this.selectorKey ? selectorValue[this.selectorKey] : selectorValue // 设置cell显示文字
+      this.cellValue = selectorValue.value // 设置cell显示文字
       this.$emit('on-change', selectorValue)
     },
     selectorCancel () {

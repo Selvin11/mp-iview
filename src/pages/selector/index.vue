@@ -10,7 +10,6 @@
     <i-selector
       title="单列选择器-数组项为对象"
       :selector-data="selectorObjectData"
-      selector-key="name"
       placeholder="请选择城市"
       @on-change="selectorChange"
       :value="valueObject"
@@ -30,15 +29,15 @@ export default {
       selectorData: ['中国', '印度'],
       value: '中国',
       valueObject: {
-        id: 4,
-        name: '印度'
+        key: 4,
+        value: '印度'
       },
       selectorObjectData: [{
-        id: 3,
-        name: '中国'
+        key: 3,
+        value: '中国'
       }, {
-        id: 4,
-        name: '印度'
+        key: 4,
+        value: '印度'
       }]
     }
   },
