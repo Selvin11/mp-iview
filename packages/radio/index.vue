@@ -5,13 +5,13 @@
         <div class="i-cell-bd i-radio-cell">
           <label>
             <radio 
-              :value="list.value" 
+              :value="list.key" 
               :checked="list.checked" 
               :color="list.checked ? color : ''" 
               :disabled="list.disabled" 
               :class="['i-radio-radio', positionCls]" 
             />
-            <div class="i-radio-title">{{list.name}}</div>
+            <div class="i-radio-title">{{list.value}}</div>
           </label>
         </div>
       </div>
@@ -42,21 +42,21 @@ export default {
     radioTap (list) {
       let current = []
       this.lists.forEach((item, index) => {
-        if (list.name === item.name) {
+        if (list.key === item.key) {
           this.lists.splice(index, 1, {
-            name: item.name,
+            key: item.key,
             value: item.value,
             checked: !item.checked
           })
         } else {
           this.lists.splice(index, 1, {
-            name: item.name,
+            key: item.key,
             value: item.value,
             checked: false
           })
         }
       })
-      current = this.lists.filter(list => list.checked)
+      current = this.lists.filter(list => list.checked)[0]
       this.$emit('change', current)
     }
   },
