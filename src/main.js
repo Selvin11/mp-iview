@@ -15,6 +15,10 @@ export default {
     pages: [
       '^pages/index/main',
       'pages/button/main',
+      'pages/address/main',
+      'pages/selector/main',
+      'pages/date/main', // picker mode: date
+      'pages/datetime/main', // picker-view + picker-view-column
       'pages/list/main',
       'pages/switch/main',
       'pages/checkbox/main',
@@ -38,6 +42,7 @@ export default {
       'pages/drawer/main', // drawer
       'pages/input/main',
       'pages/input_number/main',
+      'pages/keyboard/main',
       'pages/notice_bar/main',
       'pages/spin/main',
       'pages/steps/main',

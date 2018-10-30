@@ -20,18 +20,18 @@ export default {
   data () {
     return {
       fruit: [{
-        value: 1,
-        name: '香蕉',
+        key: 1,
+        value: '香蕉',
         checked: true
       }, {
-        value: 2,
-        name: '苹果'
+        key: 2,
+        value: '苹果'
       }, {
-        value: 3,
-        name: '西瓜'
+        key: 3,
+        value: '西瓜'
       }, {
-        value: 4,
-        name: '葡萄'
+        key: 4,
+        value: '葡萄'
       }],
       position: 'left'
     }

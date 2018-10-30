@@ -29,6 +29,10 @@ export default {
     fixed: {
       type: Boolean,
       default: false
+    },
+    isNext: {
+      type: Boolean, // 是否可以进行tab切换
+      default: true
     }
   },
   created () {
@@ -36,7 +40,7 @@ export default {
       let items = this.$children
       const len = items.length
 
-      if (len > 0) {
+      if (len > 0 && this.isNext) {
         items.forEach(item => {
           item.scroll = this.scroll
           item.isCurrent = item.name === name

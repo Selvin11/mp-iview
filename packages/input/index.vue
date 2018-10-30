@@ -9,7 +9,7 @@
       :value="value"
       :placeholder="placeholder"
       :maxlength="maxlength"
-      :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']"
+      :class="['i-input-input', 'i-cell-ft', right ? 'i-input-input-right' : '']"
       placeholder-class="i-input-placeholder"
       @input="handleInputChange"
       @focus="handleInputFocus"
@@ -24,7 +24,7 @@
       :value="value"
       :placeholder="placeholder"
       :maxlength="maxlength"
-      :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']"
+      :class="['i-input-input', 'i-cell-ft', right ? 'i-input-input-right' : '']"
       placeholder-class="i-input-placeholder"
       @input="handleInputChange"
       @focus="handleInputFocus"
@@ -41,6 +41,7 @@ export default {
     title: {
       type: String
     },
+    value: [String, Number],
     // text || textarea || password || number
     type: {
       type: String,
@@ -80,15 +81,15 @@ export default {
       const { value = '' } = detail
       this.value = value
 
-      this.$emit('change', event)
+      this.$emit('on-change', event)
     },
 
     handleInputFocus (event) {
-      this.$emit('focus', event)
+      this.$emit('on-focus', event)
     },
 
     handleInputBlur (event) {
-      this.$emit('blur', event)
+      this.$emit('on-blur', event)
     }
   }
 }

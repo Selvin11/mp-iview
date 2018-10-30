@@ -47,6 +47,18 @@
             url: 'input_number',
             name: '加减输入框'
           }, {
+            url: 'keyboard',
+            name: '键盘'
+          }, {
+            url: 'selector',
+            name: '单列选择器'
+          }, {
+            url: 'date',
+            name: '小程序原生日期选择'
+          }, {
+            url: 'datetime',
+            name: '全格式日期选择'
+          }, {
             url: 'button',
             name: '按钮'
           }, {
@@ -75,6 +87,9 @@
           pages: [{
             url: 'avatar',
             name: '头像'
+          }, {
+            url: 'address',
+            name: '地址'
           }, {
             url: 'badge',
             name: '徽章'

@@ -7,30 +7,22 @@
     <div class="page__bd">
       <i-cell-group>
         <i-cell title="基本用法">
-          <div slot="footer">
-            <i-switch :value="switch1" @change="onChange"></i-switch>
-          </div>
+          <i-switch :value="switch1" @change="onChange"></i-switch>
         </i-cell>
         <i-cell title="自定义内容">
-          <div slot="footer">
-            <i-switch :value="switch1" size="large" @change="onChange">
-              <div slot="open">开启</div>
-              <div slot="close">关闭</div>
-            </i-switch>
-          </div>
+          <i-switch :value="switch1" size="large" @change="onChange">
+            <div slot="open">开启</div>
+            <div slot="close">关闭</div>
+          </i-switch>
         </i-cell>
         <i-cell title="图标">
-          <div slot="footer">
-            <i-switch :value="switch1" @change="onChange" slot="footer">
-              <i-icon type="right" slot="open"></i-icon>
-              <i-icon type="close" slot="close"></i-icon>
-            </i-switch>
-          </div>
+          <i-switch :value="switch1" @change="onChange" slot="footer">
+            <i-icon type="right" slot="open"></i-icon>
+            <i-icon type="close" slot="close"></i-icon>
+          </i-switch>
         </i-cell>
         <i-cell title="禁止切换">
-          <div slot="footer">
-            <i-switch :value="switch1" disabled slot="footer"></i-switch>
-          </div>
+          <i-switch :value="switch1" disabled slot="footer"></i-switch>
         </i-cell>
       </i-cell-group>
     </div>
