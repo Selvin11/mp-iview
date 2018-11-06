@@ -68,8 +68,8 @@
       return {
         animationKeyboard: '',
         animation: '',
-        provincesData: this.handleProvincesData(), // 省份简称数据
-        alphanumeric: this.handleAlphanumericData(), // 字母键盘数据
+        provincesData: [], // 省份简称数据
+        alphanumeric: [], // 字母键盘数据
         isShow: this.show,
         currentTouchStart: '' // 当前按下元素
       }
@@ -89,6 +89,8 @@
       }
     },
     created () {
+      this.provincesData = this.handleProvincesData()
+      this.alphanumeric = this.handleAlphanumericData()
       this.animation = wx.createAnimation({
         duration: 500,
         transformOrigin: '50% 50%',
