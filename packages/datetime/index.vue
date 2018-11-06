@@ -251,6 +251,10 @@ export default {
     },
     chooseDate () {
       this.startAddressAnimation(true)
+      if (!this.value) {
+        this.cellValue = this.getDateString(this.pickerViewValue)
+        this.$emit('on-change', this.cellValue)
+      }
     },
     dateChange (e) {
       let currentPickerViewValue = this.pickerViewValue
