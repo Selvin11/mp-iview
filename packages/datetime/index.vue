@@ -251,10 +251,6 @@ export default {
     },
     chooseDate () {
       this.startAddressAnimation(true)
-      if (!this.value) {
-        this.cellValue = this.getDateString(this.pickerViewValue)
-        this.$emit('on-change', this.cellValue)
-      }
     },
     dateChange (e) {
       let currentPickerViewValue = this.pickerViewValue
@@ -341,6 +337,11 @@ export default {
       this.startAddressAnimation(false)
     },
     selectorConfrim () {
+      // 没有传入value时，默认当前时间，点击确认时改变
+      if (!this.value) {
+        this.cellValue = this.getDateString(this.pickerViewValue)
+        this.$emit('on-change', this.cellValue)
+      }
       this.startAddressAnimation(false)
     }
   }
